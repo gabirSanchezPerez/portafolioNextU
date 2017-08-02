@@ -6,72 +6,88 @@
     <title>Hoja de vida</title>
   </head>
   <body>
-    <img src="img/logo.svg" alt="">
-    <ul>
-      <li>
-        <a href="index.html">Inicio</a>
-      </li>
-      <li>
-        <a href="educacion.html">Educación</a>
-      </li>
-      <li>
-        <a href="experiencia.html">Experiencia</a>
-      </li>
-    </ul>
+    <header>
+      <img src="img/logo.svg" alt="">
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="educacion.html">Educación</a>
+        </li>
+        <li>
+          <a href="experiencia.html">Experiencia</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="">
+      <h2> Educación</h2>
+      <article>
+        <table width="100%" border="1" cellpadding=0 cellspacing=0 >
+          <tr>
+            <td> Año</td>
+            <td>Institución</td>
+            <td>Lugar</td>
+            <td>Culmino</td>
+          </tr>
+          <tr>
+            <td>2008</td>
+            <td>Técnico Industrial</td>
+            <td>Aguachica</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>2010</td>
+            <td>System Plus de Colombia</td>
+            <td>Aguachica</td>
+            <td>Si</td>
+          </tr>
+          <tr>
+            <td>2017</td>
+            <td>Next University</td>
+            <td>Bogotá</td>
+            <td>En proceso</td>
+          </tr>
+        </table>
+      </article>
 
-    <h2> Educación</h2>
-    <table width="100%">
-      <tr>
-        <td>Año</td>
-        <td>Institución</td>
-        <td>Lugar</td>
-        <td>Culmino</td>
-      </tr>
-      <tr>
-        <td>2008</td>
-        <td>Técnico Industrial</td>
-        <td>Aguachica</td>
-        <td>Si</td>
-      </tr>
-      <tr>
-        <td>2010</td>
-        <td>System Plus de Colombia</td>
-        <td>Aguachica</td>
-        <td>Si</td>
-      </tr>
-      <tr>
-        <td>2017</td>
-        <td>Next University</td>
-        <td>Bogotá</td>
-        <td>En proceso</td>
-      </tr>
-    </table>
+      <article class="">
+        <fieldset>
+          <legend>Agregar Estudios</legend>
 
-    <fieldset>
-      <legend>Agregar Estudios</legend>
+          <form  action="index.html" method="post" >
+            <label for="anio">Año: </label>
+            <select class="" name="anio" id="anio">
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+            </select>
+            <br />
+            <label for="institucion">Institución: </label>
+            <input type="text" required name="institucion" id="institucion" value="">
+            <br />
+            <label for="lugar">Lugar: </label>
+            <textarea name="lugar" id="lugar" rows="8" cols="80"></textarea>
+            <br />
+            <label for="culmino">Culmino?: </label>
+            <input type="radio" name="culmino" value="No">No
+            <input type="radio" name="culmino" value="Si">Si
+            <input type="radio" name="culmino" value="En proceso">En proceso
+            <br />
+            <button type="submit" name="button">Enviar</button>
+          </form>
+        </fieldset>
+      </article>
 
-      <form  action="index.html" method="post" >
-        <label for="anio">Año: </label>
-        <select class="" name="anio" id="anio">
-          <option value="2014">2014</option>
-          <option value="2015">2015</option>
-          <option value="2016">2016</option>
-          <option value="2017">2017</option>
-        </select>
-        <br />
-        <label for="institucion">Institución: </label>
-        <input type="text" required name="institucion" id="institucion" value="">
-        <br />
-        <label for="lugar">Lugar: </label>
-        <textarea name="lugar" id="lugar" rows="8" cols="80"></textarea>
-        <br />
-        <label for="culmino">Culmino?: </label>
-        <input type="radio" name="culmino" value="No">No
-        <input type="radio" name="culmino" value="Si">Si
-        <input type="radio" name="culmino" value="En proceso">En proceso
-        <br />
-        <button type="submit" name="button">Enviar</button>
-      </form>
-    </fieldset>
+    </section>
+
+    <footer>
+      <p><strong>Correo electronico</strong>: <em>gabir_sanchez@hotmail.com</em> </p>
+      <p><strong>Teléfono</strong>: <em>317 3805250</em> </p>
+      <p><strong>facebook</strong>: <em>facebok.com/gabirsanchez</em> </p>
+    </footer>
   </body>
 </html>
