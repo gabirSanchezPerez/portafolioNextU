@@ -223,8 +223,3 @@ body{
   }
 
 }
-
-.tecla{
-  transform-style: preserve-3d;
-  /*transform: perspective(700px) rotateX(15deg) rotateY(0deg);*/
-}
