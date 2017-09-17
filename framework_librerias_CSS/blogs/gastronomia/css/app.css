@@ -1,0 +1,11 @@
+.row{
+  max-width: 1024px;
+}
+
+.card{
+  margin-top: 10px;
+}
+.card-footer{
+  padding: 1rem;
+  background: #e6e6e6;
+}

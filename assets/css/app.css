@@ -1,0 +1,19 @@
+.row{
+  max-width: 1024px;
+}
+
+.col{
+  padding: 10px;
+}
+
+.card img{
+
+}
+.card-img{
+  text-align: center;
+  padding: 10px;
+}
+.card-footer{
+  padding: 1rem;
+  background: #e6e6e6;
+}
