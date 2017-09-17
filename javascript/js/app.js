@@ -1,16 +1,14 @@
 var Calculadora = {
   init: function(){
-    resultado = 0
+
     valor1 = 0
     valor2 = 0
     operacionResuelta = false
     activacionPunto = false
     operacion = ""
 
-    document.onkeydown = this.teclaDown;
-    document.onkeyup = this.teclaUp;
     this.partesCalculadora()
-    this.asignarValor(resultado)
+    this.actualizarDisplay(valor1)
     this.eventos()
   },
 
@@ -20,74 +18,20 @@ var Calculadora = {
   actualizarDisplay: function(resultado){
     pantalla.innerHTML = resultado
   },
-  teclaDown: function(event, teclaClick){
+  teclaDown: function(teclaClick){
 
-    if(teclaClick === undefined){
-      tecla = event.which || event.keyCode
-      teclaString = String.fromCharCode(tecla)
-      teclaStringAux = String.fromCharCode(tecla -48)
-    }else{
-      teclaString = teclaClick
+    teclaString = teclaClick
 
-    }
     if (document.getElementById(teclaString)){
       document.getElementById(teclaString).style.transform = ("scale(0.9, 0.9)");
-    }else if (document.getElementById(teclaStringAux)){
-      document.getElementById(teclaStringAux).style.transform = ("scale(0.9, 0.9)");
-
-    } else {
-
-      if (teclaString == "+" || tecla == 107) {
-        teclaId = "mas"
-      } else if (teclaString == "-" || tecla == 109) {
-        teclaId = "menos"
-      } else if (teclaString == "*" || tecla == 106) {
-        teclaId = "por"
-      } else if (teclaString == "/" || tecla == 111) {
-        teclaId = "dividido"
-      } else if (teclaString == "=" || tecla == 13) {
-        teclaId = "igual"
-      } else if (teclaString == "." || tecla == 110) {
-        teclaId = "punto"
-      }
-
-      document.getElementById(teclaId).style.transform = ("scale(0.9, 0.9)")
     }
 
   },
-  teclaUp: function(event, teclaClick){
-    if(teclaClick === undefined){
-      tecla = event.which || event.keyCode
-      teclaString = String.fromCharCode(tecla)
-      teclaStringAux = String.fromCharCode(tecla -48)
-    }else{
-      teclaString = teclaClick
+  teclaUp: function(teclaClick){
 
-    }
+    teclaString = teclaClick
     if (document.getElementById(teclaString)) {
-      // Calculadora.asignarValor(parseInt(teclaString));
       document.getElementById(teclaString).style.transform = ("scale(1, 1)");
-    } else if(document.getElementById(teclaStringAux)){
-
-      // Calculadora.asignarValor(parseInt(teclaString));
-      document.getElementById(teclaStringAux).style.transform = ("scale(1, 1)");
-    } else {
-
-     if (teclaString == "+" || tecla == 107) {
-        teclaId = "mas"
-      } else if (teclaString == "-" || tecla == 109) {
-        teclaId = "menos"
-      } else if (teclaString == "*" || tecla == 106) {
-        teclaId = "por"
-      } else if (teclaString == "/" || tecla == 111) {
-        teclaId = "dividido"
-      } else if (teclaString == "=" || tecla == 13) {
-        teclaId = "igual"
-      } else if (teclaString == "." || tecla == 110) {
-        teclaId = "punto"
-      }
-
-      document.getElementById(teclaId).style.transform = ("scale(1, 1)");
     }
   },
   eventos: function (){
@@ -95,13 +39,12 @@ var Calculadora = {
     for (i = 0;i < teclado.length; i++) {
       teclado[i].addEventListener("click", function(ev){
         var ad = this.id
-        Calculadora.teclaDown(ev, this.id);
+        Calculadora.teclaDown(this.id);
         if(!isNaN(parseInt(this.id))  || this.id === "punto"){
           if(this.id == 'punto'){
             activacionPunto = true
           }
           Calculadora.asignarValor(parseInt(this.id));
-
           operacionResuelta = false
 
         }else{
@@ -127,11 +70,11 @@ var Calculadora = {
 
             operacion = this.id
             operacionResuelta = true
+            pantalla.innerHTML = ""
           }
         }
         setTimeout(function () {
-          // console.log("aqui " + ad);
-          Calculadora.teclaUp(ev, ad);
+          Calculadora.teclaUp(ad);
         }, 100);
       });
     }
@@ -208,7 +151,7 @@ var Calculadora = {
     if(operacionResuelta){
       operacionResuelta = false
       nuevoValor = valor
-    }else if(pantalla.innerHTML.length < 8){
+    }else if(pantalla.innerHTML.length < 8 || (pantalla.innerHTML.length < 9 && pantalla.innerHTML.indexOf(".") != -1)){
       if(parseFloat(pantalla.innerHTML) == 0 && !activacionPunto && pantalla.innerHTML.indexOf(".") == -1){
         nuevoValor = valor
       }else{
