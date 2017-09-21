@@ -1,0 +1,50 @@
+body{
+  background: url("../img/login-fondo.jpg");
+  color: #FFF;
+}
+.form_login{
+  padding-top: 15%;
+}
+
+.form{
+  padding: 20px 20px 0px;
+  background: rgba(56, 54, 54, 0.6);
+  border: 1px solid rgb(182, 182, 182);
+  box-shadow: 0px 0px 7px;
+}
+
+.no-padding{
+  padding: 0px !important;
+}
+.no-padding-left{
+  padding-left: 0px !important;
+}
+.no-padding-right{
+  padding-right: 0px !important;
+}
+
+.no-margin{
+  margin: 0px !important;
+}
+.no-margin-left{
+  margin-left: 0px !important;
+}
+.no-margin-right{
+  margin-right: 0px !important;
+}
+
+
+/* ESTILO PARA TEREAS PENDIENTES */
+.t-p .card{
+  height: 500px;
+}
+.t-p .card .card-content{
+  padding: 15px !important;
+}
+.t-p .card .card-action{
+  bottom: 0px;
+position: absolute;
+right: 0px;
+border-top: none;
+padding: 15px;
+}
