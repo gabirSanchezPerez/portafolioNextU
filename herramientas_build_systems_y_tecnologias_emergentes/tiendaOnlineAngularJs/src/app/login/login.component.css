@@ -1,0 +1,8 @@
+/* body {
+    background: url("../../assets/img/login-fondo.jpg");
+  } */
+
+input.ng-touched.ng-invalid{
+    border: 1px solid #830C0C;
+    box-shadow: 0px 0px 10px #830000 inset;
+}

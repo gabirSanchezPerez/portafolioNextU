@@ -1,14 +1,15 @@
 <div class="container">
   <section class="row form_login">
-    <form class="small-offset-3 small-6 form">
+    <form class="small-offset-3 small-6 form" (ngSubmit)="enviarFormulario(f)" #f="ngForm" >
 
       <strong>Correo Electrónico</strong>
-      <input type="email" value="" required />
+      <input type="email" value="" required ngModel name="correo" />
       <strong>Contraseña</strong>
-      <input type="password" value="" required />
+      <input type="password" value="" required ngModel name="contrasenia" />
       <div class="text-center">
-        <button class="button secondary" >Ingresar</button>
+        <button type="submit" class="button secondary" >Ingresar</button>
       </div>
     </form>
   </section>
+
 </div>

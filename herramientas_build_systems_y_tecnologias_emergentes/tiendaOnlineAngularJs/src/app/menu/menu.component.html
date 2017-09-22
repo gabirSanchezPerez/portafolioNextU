@@ -1,3 +1,11 @@
-<p>
-  menu works!
-</p>
+<div class="barra_menu clearfix">
+  <ul class="menu float-left">
+    <li class="menu-text">La bodega</li>
+  </ul>
+  
+  <ul class="menu float-right">
+    <li routerLink="active"><a [routerLink]="['/catalogo']"> <i class="fi-list"></i> <span>One</span> </a></li>
+    <li routerLink="active"><a [routerLink]="['/carrito']">Two</a></li>
+    <li routerLink="active"><a [routerLink]="['/login']">Three</a></li>
+  </ul>
+</div>
