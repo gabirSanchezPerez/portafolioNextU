@@ -1,11 +1,20 @@
 <div class="barra_menu clearfix">
   <ul class="menu float-left">
-    <li class="menu-text">La bodega</li>
+    <li class="menu-text">La Bodega</li>
   </ul>
   
   <ul class="menu float-right">
-    <li routerLink="active"><a [routerLink]="['/catalogo']"> <i class="fi-list"></i> <span>One</span> </a></li>
-    <li routerLink="active"><a [routerLink]="['/carrito']">Two</a></li>
-    <li routerLink="active"><a [routerLink]="['/login']">Three</a></li>
+    <li routerLinkActive="activo"><a routerLink="/catalogo"> <i class="fa fa-th"></i> <span> </span> </a></li>
+    <li routerLinkActive="activo"><a routerLink="/carrito"> <i class="fa fa-shopping-cart"></i> </a></li>
+    <li routerLinkActive="activo"><a routerLink="/login"> <i class="fa fa-sign-out"></i> </a></li>
   </ul>
 </div>
+
+
+<!-- 
+    <li *ngFor="let person of people">
+      <a [routerLink]="['/persons', person.id]">
+        {{person.name}}
+      </a>
+    </li>
+ -->

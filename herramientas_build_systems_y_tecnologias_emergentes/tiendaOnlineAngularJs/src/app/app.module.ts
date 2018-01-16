@@ -9,10 +9,13 @@ import { LoginComponent } from './login/login.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HttpService } from './servicios/http.service';
 import { Routes, RouterModule } from '@angular/router';
+import { CarritoComponent } from './carrito/carrito.component';
 
 const appRoutes: Routes = [
-  { path: '', component: InicioComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'catalogo', component: InicioComponent},
+  { path: 'login', component: LoginComponent},
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
+  { path: 'carrito', component: CarritoComponent}
 ];
 
 @NgModule({
@@ -20,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     MenuComponent,
     InicioComponent,
-    LoginComponent
+    LoginComponent,
+    CarritoComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

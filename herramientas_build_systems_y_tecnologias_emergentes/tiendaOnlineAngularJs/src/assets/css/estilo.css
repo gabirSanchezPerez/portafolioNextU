@@ -1,6 +1,7 @@
 body{
   background: url("../img/main-fondo.jpg");
   color: #FFF;
+  font-size: 14px !important;
 }
 .form_login{
   padding-top: 15%;
@@ -43,8 +44,12 @@ body{
 }
 .t-p .card .card-action{
   bottom: 0px;
-position: absolute;
-right: 0px;
-border-top: none;
-padding: 15px;
+  position: absolute;
+  right: 0px;
+  border-top: none;
+  padding: 15px;
+}
+
+.linea-bottom{
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
 }

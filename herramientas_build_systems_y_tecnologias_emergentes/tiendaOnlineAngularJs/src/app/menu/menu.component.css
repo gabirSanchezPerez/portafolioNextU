@@ -1,10 +1,14 @@
 .barra_menu{
-    padding: 5px 15px;
-    background: #D3D3D3;
+    padding-left: 15px;
+    background: #EBEAEA;
     margin-bottom: 15px;
     color: #5d5d5d;
 }
 
 a {
     color: #5d5d5d;
+}
+
+li:hover, .activo{
+    background: #fefefe;
 }

@@ -1,6 +1,7 @@
 body{
   background: url("../img/login-fondo.jpg");
   color: #FFF;
+  font-size: 14px !important;
 }
 .form_login{
   padding-top: 15%;
@@ -32,6 +33,7 @@ body{
 .no-margin-right{
   margin-right: 0px !important;
 }
+
 
 /* ESTILO PARA TAREAS PENDIENTES */
 .t-p .card{

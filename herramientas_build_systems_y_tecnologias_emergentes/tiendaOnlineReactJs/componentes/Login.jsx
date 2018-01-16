@@ -5,31 +5,33 @@ class Login extends React.Component{
   constructor() {
     super();
     this.state = {
-      email: 'gabir@sonacis.com',
-      password: '123345'
+      email: 'gabir_sanchez@hotmail.com',
+      password: 'Gabir123',
+
     }
     console.log("Constructor");
   }
 
   componentWillMount(){
     console.log("component Will Mount ");
-    var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php";
+    var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=login";
     Request
-    .get(url)
-    .set("Access-Control-Allow-Origin", "*")
-          .end((error, response) => {
-              if (!error || response) {
-                  this.setState({ commits: response.body });
-                  console.log('RTA SERVER',  response.body);
-              } else {
-                console.log('ERRR ', error);
-              }
-          }
-      );
-    // .set(this.state)
-    // .get(url).then((response) => {
-    //   console.log(response);
-    // });
+      .post(url)
+      .set('Content-Type': 'application/json')
+      .query({
+          correo: this.state.email,
+          contrasenia: this.state.password
+        })
+      .end((error, response) => {
+        if (!error || response) {
+          console.log('RTA SERVER 1',  response);
+          // this.setState({logeado: true});
+        } else {
+          console.log('ERRR ', error);
+        }
+      }
+    );
+
   }
 
 

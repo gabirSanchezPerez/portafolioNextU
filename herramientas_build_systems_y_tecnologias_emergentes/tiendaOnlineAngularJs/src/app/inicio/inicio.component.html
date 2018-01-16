@@ -1,12 +1,36 @@
-<div class="row">
-
-  <ang2-menu class="column"></ang2-menu>
-
+<div class="row *ngIf">
+  <ang2-menu class="column no-padding"></ang2-menu>
 </div>
-<div class="row catalogo">
-  <div class="small-3 column"> 1 </div>
-  <div class="small-3 column"> 2 </div>
-  <div class="small-3 column"> 3 </div>
-  <div class="small-3 column"> 4 </div>
-  <div class="small-3 column"> 5 </div>
+
+<div class=" row ">
+  <div class="catalogo">
+    <div class="row small-12 linea-bottom">
+      <div class="column">
+        <h4>Catálogo de productos</h4>
+      </div>
+      <div class="column small-offset-5">
+        <strong>¿Que estas buscando?</strong>
+        <input type="text" value="" placeholder="Buscar producto">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-3 column" *ngFor="let producto of datoProductos">
+        <div class="card">
+          <img class="" src="../../assets/img/productos/{{producto.imagen}}">
+          <div class="card-section">
+            <strong>{{producto.nombre}}</strong><br>
+            <strong>{{producto.valor|number}}</strong><br>
+            <strong>Unidades disponibles</strong>
+            <div class="small-12">
+              <input type="button" class="button primary" value="Ver más">
+              <input type="button" class="button warning" value="Añadir">
+              <input type="number" size="3" value="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+  

@@ -1,0 +1,27 @@
+body {
+	background: #80D8D8;
+}
+
+article {
+	
+}
+.menu {
+	padding: 10px;
+	background-color: #efefef;
+	border-radius: 25px;
+}
+
+.menu div.col {
+	border: 1px solid #dad8d8;
+	border-radius: 14px;
+}
+.menu div.col:hover, .menu div.col.active {
+	background-color: #E6E4E4;
+	cursor: pointer;
+}
+
+.esq_inf_der {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}

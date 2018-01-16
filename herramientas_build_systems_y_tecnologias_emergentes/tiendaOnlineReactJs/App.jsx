@@ -1,14 +1,14 @@
 import React from 'react';
 
 import Login from './componentes/Login.jsx'
-import Home from './componentes/Home.jsx'
+import Home from './componentes/app/Home.jsx'
 
 class App extends React.Component{
 
   constructor(props) {
     super(props);
     this.state = {
-       logeado: false
+       logeado: true
     }
   }
   
@@ -21,6 +21,11 @@ class App extends React.Component{
     }
 
   }
+
+  componentDidMount() {
+
+  }
+
 }
 
 export default App;
