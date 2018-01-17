@@ -8,7 +8,7 @@ article {
 .menu {
 	padding: 10px;
 	background-color: #efefef;
-	border-radius: 25px;
+	border-radius: 25px 25px 0 0;
 }
 
 .menu div.col {
@@ -20,8 +20,23 @@ article {
 	cursor: pointer;
 }
 
+.menu div.col.active {
+	background-color: #C9C9C9;
+}
+
 .esq_inf_der {
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
+}
+
+.zona_articulos, .zona_busqueda {
+	padding: 15px;
+	background-color: #efefef;
+	border: 1px solid #dad8d8;
+}
+
+
+.no-p{
+	padding: 0px;
 }
