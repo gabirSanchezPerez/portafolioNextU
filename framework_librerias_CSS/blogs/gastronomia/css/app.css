@@ -1,11 +1,35 @@
-.row{
-  max-width: 1024px;
+body {
+	background: rgba(0,0,0,0) url("../img/fondo.jpg")  no-repeat fixed center;
+}
+.border-l {
+  border-left: 1px solid #0005;
 }
 
-.card{
-  margin-top: 10px;
+.callout.secondary {
+	background-color: #EDEDED;
 }
-.card-footer{
-  padding: 1rem;
-  background: #e6e6e6;
+
+.button.hollow.secondary {
+  border: 1px solid #e9e9e9;
+  color: #939393;
+}
+
+.container.callout {
+	margin-bottom: 0px;
+}
+
+h5 small, p small {
+	color: #909090;
+}
+
+.callout.gray {
+	background-color: #C3C3C399;
+}
+
+.articulo {
+	opacity: 1;
+}
+
+hr {
+	border-bottom: 1px solid #0005; 
 }

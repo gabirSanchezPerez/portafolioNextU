@@ -11,16 +11,16 @@ article {
 	border-radius: 25px 25px 0 0;
 }
 
-.menu div.col {
+.menu div.col-sm {
 	border: 1px solid #dad8d8;
 	border-radius: 14px;
 }
-.menu div.col:hover, .menu div.col.active {
+.menu div.col-sm:hover, .menu div.col-sm.active {
 	background-color: #E6E4E4;
 	cursor: pointer;
 }
 
-.menu div.col.active {
+.menu div.col-sm.active {
 	background-color: #C9C9C9;
 }
 
@@ -39,4 +39,14 @@ article {
 
 .no-p{
 	padding: 0px;
+}
+
+.fa {
+	cursor: pointer;
+}
+
+@media (min-width: 558px) {
+	.esq_inf_der {
+		position: relative;
+	}
 }
