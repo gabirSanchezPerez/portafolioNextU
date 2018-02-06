@@ -1,6 +1,7 @@
-body {
-	background: rgba(0,0,0,0) url("../img/fondo.jpg")  no-repeat fixed center;
+body.container {
+	background: url("../img/fondo.jpg")  no-repeat fixed center;
 }
+
 .border-l {
   border-left: 1px solid #0005;
 }

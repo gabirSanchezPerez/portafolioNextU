@@ -1,0 +1,17 @@
+body {
+	padding: 20px;
+}
+
+.s10.nav {
+	position: relative;
+	height: 133px;
+}
+
+.slogan {
+	position: absolute;
+	bottom: 0px;
+}
+
+.btn {
+	padding: 0 1rem;
+}
