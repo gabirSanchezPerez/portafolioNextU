@@ -15,3 +15,25 @@ body {
 .btn {
 	padding: 0 1rem;
 }
+
+article > div {
+	background-color: #CCC;
+	padding: 1rem !important;
+}
+
+p {
+	text-align: justify;
+}
+
+div.col.s8, .input-field .prefix.active {
+	background-color: #2AB8FA;
+	color: #FFF;
+}
+
+.input-field label {
+	color: #f3f3f3;
+}
+.input-field label.active {
+	color: #FFFFFF;
+	font-weight: bolder;
+}
