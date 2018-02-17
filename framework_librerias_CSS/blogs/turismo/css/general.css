@@ -1,5 +1,7 @@
 body {
 	padding: 20px;
+	background: url("../img/fondo.jpg") no-repeat fixed center;
+	/*background-color: rgba(200,200,2,0.5);*/
 }
 
 .s10.nav {
@@ -7,17 +9,12 @@ body {
 	height: 133px;
 }
 
-.slogan {
-	position: absolute;
-	bottom: 0px;
-}
-
 .btn {
 	padding: 0 1rem;
 }
 
 article > div {
-	background-color: #CCC;
+	background-color: rgba(255, 255, 255, 1);
 	padding: 1rem !important;
 }
 
@@ -25,15 +22,26 @@ p {
 	text-align: justify;
 }
 
-div.col.s8, .input-field .prefix.active {
-	background-color: #2AB8FA;
-	color: #FFF;
+div.col.m8 > .row.col.m12, .input-field .prefix.active {
+	background-color: rgba(255, 255, 255, 1) !important;
 }
 
 .input-field label {
-	color: #f3f3f3;
+	color: #494949;
 }
-.input-field label.active {
-	color: #FFFFFF;
-	font-weight: bolder;
+
+input:not([type]):focus:not([readonly]) + label, input[type="text"]:focus:not([readonly]) + label, input[type="password"]:focus:not([readonly]) + label, input[type="email"]:focus:not([readonly]) + label, input[type="url"]:focus:not([readonly]) + label, input[type="time"]:focus:not([readonly]) + label, input[type="date"]:focus:not([readonly]) + label, input[type="datetime"]:focus:not([readonly]) + label, input[type="datetime-local"]:focus:not([readonly]) + label, input[type="tel"]:focus:not([readonly]) + label, input[type="number"]:focus:not([readonly]) + label, input[type="search"]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+	color: #000;
+	animation-name: example;
+	animation-duration: .5s;
+	animation-iteration-count: infinite;
+}
+
+h4 {
+	text-shadow: 0px 0px 3px #FFF;
+}
+
+@keyframes example {
+    from {color: #828282;}
+    to {color: #494949;}
 }
