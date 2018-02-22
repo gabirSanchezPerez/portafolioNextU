@@ -9,6 +9,7 @@ import { HttpService } from './../servicios/http.service';
 })
 export class InicioComponent implements OnInit {
   public datoProductos: string[] = [];
+  public datoProductosAux: string[] = [];
 
   constructor(private httpService: HttpService) { }
 
@@ -26,10 +27,25 @@ export class InicioComponent implements OnInit {
           aux.push(data[key])
         }
         this.datoProductos = aux;
+        this.datoProductosAux = aux;
       },
       (error) => { return error }
-      );
+    );
 
+  }
+
+  filtrarProductos(nombreProducto: string) {
+
+    this.datoProductos = this.datoProductosAux.filter(
+      item => {
+        if (item["nombre"] !== null && item["nombre"].toLowerCase().indexOf(nombreProducto.toLowerCase()) > -1) {
+
+            return item; 
+        }
+        return false;
+
+      }
+    )
   }
 
 }

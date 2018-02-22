@@ -1,8 +1,7 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'start',
-1 verbose cli   '-o' ]
+1 verbose cli   'start' ]
 2 info using npm@3.10.10
 3 info using node@v6.11.2
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
@@ -10,7 +9,7 @@
 6 silly lifecycle tienda_online_react_js@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle tienda_online_react_js@1.0.0~start: tienda_online_react_js@1.0.0
 8 verbose lifecycle tienda_online_react_js@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle tienda_online_react_js@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\wamp\www\portafolioNextU\herramientas_build_systems_y_tecnologias_emergentes\tiendaOnlineReactJs\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Yarn\bin;C:\Users\YABIR\AppData\Local\Microsoft\WindowsApps;C:\Users\YABIR\AppData\Local\atom\bin;C:\Users\YABIR\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin;C:\Users\YABIR\AppData\Local\Microsoft\WindowsApps;C:\Users\YABIR\AppData\Local\Yarn\bin;
+9 verbose lifecycle tienda_online_react_js@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\wamp\www\portafolioNextU\herramientas_build_systems_y_tecnologias_emergentes\tiendaOnlineReactJs\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;C:\Program Files\PuTTY\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Yarn\bin;C:\wamp\bin\php\php5.4.12;C:\ProgramData\ComposerSetup\bin;C:\maven\bin;C:\RailsInstaller\Git\cmd;C:\RailsInstaller\Ruby2.2.0\bin;C:\Users\YABIR\AppData\Local\Microsoft\WindowsApps;C:\Users\YABIR\AppData\Local\atom\bin;C:\Users\YABIR\AppData\Roaming\npm;C:\Users\YABIR\AppData\Local\Microsoft\WindowsApps;C:\Users\YABIR\AppData\Local\Yarn\bin;C:\Program Files\Heroku\bin;C:\Users\YABIR\AppData\Roaming\Composer\vendor\bin
 10 verbose lifecycle tienda_online_react_js@1.0.0~start: CWD: C:\wamp\www\portafolioNextU\herramientas_build_systems_y_tecnologias_emergentes\tiendaOnlineReactJs
 11 silly lifecycle tienda_online_react_js@1.0.0~start: Args: [ '/d /s /c', 'webpack-dev-server --hot' ]
 12 silly lifecycle tienda_online_react_js@1.0.0~start: Returned: code: 3221225786  signal: null
@@ -28,7 +27,7 @@
 15 verbose pkgid tienda_online_react_js@1.0.0
 16 verbose cwd C:\wamp\www\portafolioNextU\herramientas_build_systems_y_tecnologias_emergentes\tiendaOnlineReactJs
 17 error Windows_NT 10.0.16299
-18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start" "-o"
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
 19 error node v6.11.2
 20 error npm  v3.10.10
 21 error code ELIFECYCLE

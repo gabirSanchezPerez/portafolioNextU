@@ -1,36 +1,40 @@
-<div class="row *ngIf">
-  <ang2-menu class="column no-padding"></ang2-menu>
-</div>
-
-<div class=" row ">
-  <div class="catalogo">
-    <div class="row small-12 linea-bottom">
-      <div class="column">
-        <h4>Catálogo de productos</h4>
+<section class="body">
+  <div class="row *ngIf">
+    <ang2-menu class="column no-padding"></ang2-menu>
+  </div>
+  <div class=" row ">
+    <div class="catalogo">
+      <div class="row small-12 linea-bottom">
+        <div class="column">
+          <h4>Catálogo de productos</h4>
+        </div>
+        <div class="column small-offset-5">
+          <strong>¿Que estas buscando?</strong>
+          <input type="text" #buscar_producto placeholder="Buscar producto" (keyup)="filtrarProductos(buscar_producto.value)" >
+        </div>
       </div>
-      <div class="column small-offset-5">
-        <strong>¿Que estas buscando?</strong>
-        <input type="text" value="" placeholder="Buscar producto">
-      </div>
-    </div>
+      <div class="row">
+        <div class="small-12 medium-4 large-3 column" *ngFor="let producto of datoProductos">
 
-    <div class="row">
-      <div class="small-3 column" *ngFor="let producto of datoProductos">
-        <div class="card">
-          <img class="" src="../../assets/img/productos/{{producto.imagen}}">
-          <div class="card-section">
-            <strong>{{producto.nombre}}</strong><br>
-            <strong>{{producto.valor|number}}</strong><br>
-            <strong>Unidades disponibles</strong>
-            <div class="small-12">
-              <input type="button" class="button primary" value="Ver más">
-              <input type="button" class="button warning" value="Añadir">
-              <input type="number" size="3" value="">
+          <div class="card">
+            <div class="text-center">
+              <img class="" src="../../assets/img/productos/{{producto.imagen}}">
+            </div>
+            <div class="card-section">
+              <p><strong>{{producto.nombre}}</strong></p>
+              <p>Precio: ${{producto.valor|number}}</p>
+              <p>Unidades disponibles: {{producto.cantidad}}</p>
+          
+                <div class=" row small-12 padding-horizontal-1">
+                  <a class="small-4 button primary" routerLink="/catalogo/{{producto.id}}">Ver más</a>
+                  <!-- <input type="button"  value="Ver más"> -->
+                  <input type="button" class="small-offset-1 small-3 button warning" value="Añadir">
+                  <input type="number" class="column text-right" value="" maxlength="3">
+                </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-  
+</section>

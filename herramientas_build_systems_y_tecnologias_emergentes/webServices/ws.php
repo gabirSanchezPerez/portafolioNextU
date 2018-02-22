@@ -45,5 +45,24 @@ if($dato == "productos"){
 	die(json_encode($rtaUsuario));
 }
 
+if($dato == "producto"){
+	$id = $_REQUEST['id'];
+	// Consulta de login
+	require_once("conexion.php");
+	$cone = new conexion();
+
+	$resultado = $cone->seleccionar("SELECT p.* ", "FROM productos p", "  ", " WHERE p.id = " .$id);
+	$rtaUsuario = array();
+
+	if ($resultado->num_rows > 0) {
+		while($row = $resultado->fetch_assoc()){
+			$rtaUsuario = $row; 
+		}
+	}
+	$resultado->close();
+	 
+	die(json_encode($rtaUsuario));
+}
+
 
  ?>

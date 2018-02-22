@@ -1,12 +1,22 @@
-/* body{
-    background: url("../img/main-fondo.jpg");
-} */
+ .body {
+    background: url("../../assets/img/main-fondo.jpg");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+   } 
 
+.row {
+    max-width: 70rem;
+}
 .catalogo{
     background: #FFF;
     color: #5d5d5d;
     padding: 1.5rem 1.5rem 0px;
     margin-bottom: 15px;
+    max-height: 565px;
+    width: 100%;
+    position: initial;
+    overflow: auto;
 }
 
 .card{
@@ -18,11 +28,12 @@
 }
 
 .card img{
-    padding: 1rem;
+    padding: .3rem;
+    max-height: 150px
 }
 
 .card-section{
-    padding-top: 0px;
+    padding: 0px .3rem;
 }
 
 .column{
@@ -30,6 +41,23 @@
     padding-right: 0.2rem;
 }
 
-input[type="number"] {
-    margin: 0;
+input.column {
+    margin-left: .3rem
+}
+
+.button, .button:hover, .button:focus {
+    padding: .7rem 0.1rem;
+    color: #FFF
+}
+
+p {
+    margin-bottom: .5rem;
+}
+
+img {
+    max-height: 400px;
+}
+
+.thumbnail {
+    box-shadow: 0px 0px 5px #000f;
 }

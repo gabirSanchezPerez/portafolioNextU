@@ -4,27 +4,35 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class HttpService {
+  private URL = 'http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php'
 
   constructor(private http: Http) { }
 
   getDatos(){
-    var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php";
+    var url = this.URL;
     
     return this.http.get(url)
         .map((response: Response) => response.json())
   }
 
-  setDatos( correo: string, contrasenia: string){
+  logearse( correo: string, contrasenia: string){
 
     let cuerpo = JSON.stringify({correo, contrasenia});
-    var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=login";
+    var url = this.URL+"?query=login";
     
     return this.http.post(url, cuerpo)
         .map((response: Response) => response.json())
   }
 
   getProductos(){
-    var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=productos";
+    var url = this.URL+"?query=productos";
+    
+    return this.http.get(url)
+        .map((response: Response) => response.json())
+  }
+
+  getProducto(id: number) {
+    var url = this.URL+"?query=producto&id="+id;
     
     return this.http.get(url)
         .map((response: Response) => response.json())

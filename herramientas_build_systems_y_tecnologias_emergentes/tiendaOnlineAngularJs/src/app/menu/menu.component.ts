@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ang2-menu',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+
+  	if(localStorage.getItem("currentUserIdAng") == null) {
+      this.router.navigate(['/login']);
+    }
+
+  }
+
+  salir() {
+    localStorage.removeItem("currentUserIdAng");
+    this.router.navigate(['/login']);
   }
 
 }
