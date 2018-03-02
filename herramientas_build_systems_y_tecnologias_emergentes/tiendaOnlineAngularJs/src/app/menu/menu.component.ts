@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
 export class MenuComponent implements OnInit {
+  @Input() cantidadProductosCarrito: number;
 
   constructor(private router: Router) { }
-
   ngOnInit() {
 
   	if(localStorage.getItem("currentUserIdAng") == null) {

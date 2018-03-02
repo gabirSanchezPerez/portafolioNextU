@@ -8,7 +8,10 @@
       <a routerLink="/catalogo"> <i class="fa fa-th"></i> </a>
     </li>
     <li routerLinkActive="activo">
-      <a routerLink="/carrito"> <i class="fa fa-shopping-cart"></i> </a>
+      <a routerLink="/carrito"> 
+        <i class="fa fa-shopping-cart"></i> 
+        <span class="badge alert" *ngIf="cantidadProductosCarrito > 0">{{cantidadProductosCarrito}}</span>
+      </a>
     </li>
     <li routerLinkActive="activo">
       <a (click) = "salir()"> <i class="fa fa-sign-out"></i> </a>

@@ -1,6 +1,6 @@
 <section class="body">
-  <div class="row *ngIf">
-    <ang2-menu class="column no-padding"></ang2-menu>
+  <div class="row ">
+    <ang2-menu [cantidadProductosCarrito] = "datoProductosCarrito.length" class="column no-padding"></ang2-menu>
   </div>
   <div class=" row ">
     <div class="catalogo">
@@ -17,9 +17,8 @@
         </div>
         <div class="small-6 column">
           <div class="card-section">
-            <p><strong>Precio</strong>: ${{producto.valor|number}}</p>
+            <h5><strong>Precio</strong>: $ {{producto.valor|number}}</h5>
             <p><strong>Unidades disponibles</strong>: {{producto.cantidad}}</p>
-            <p><strong>Descripción</strong>: {{producto.descripcion}}</p>
           </div>
         </div>
       </div>

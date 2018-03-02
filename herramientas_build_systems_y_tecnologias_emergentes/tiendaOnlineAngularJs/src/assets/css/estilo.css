@@ -53,3 +53,12 @@ body{
 .linea-bottom{
   border-bottom: 1px solid rgba(200, 200, 200, 0.5);
 }
+
+.row {
+    max-width: 70rem;
+}
+
+p {
+    margin-bottom: .4rem;
+}
+

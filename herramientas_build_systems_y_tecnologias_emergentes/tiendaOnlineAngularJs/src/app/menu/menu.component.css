@@ -12,3 +12,9 @@ a {
 li:hover, .activo{
     background: #fefefe;
 }
+
+.badge {
+	font-weight: bolder;
+	padding: 5px;
+	float: right;
+}

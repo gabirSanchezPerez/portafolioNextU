@@ -1,27 +1,38 @@
 <div class="row">
-  <ang2-menu class="column no-padding"></ang2-menu>
+  <ang2-menu [cantidadProductosCarrito]="productos.length" class="column no-padding"></ang2-menu>
 </div>
-
 <div class=" row ">
-  <div class="catalogo">
+  <div class="carrito">
     <div class="row small-12 linea-bottom">
       <div class="column">
         <h4>Carrito de Compras</h4>
       </div>
       <div class="column">
-
       </div>
     </div>
-
-    <div class="row small-12 linea-bottom">
-      <div class="column">
-        <h4>Carrito de Compras</h4>
+    <div class="row small-12 ">
+      <!-- Columna de productos -->
+      <div class="column small-6">
+        <div class="row small-12 producto_carrito" *ngFor="let producto of productos">
+          <div class="column small-4">
+            <img src="../../assets/img/productos/{{producto.imagen}}" alt="">
+          </div>
+          <div class="column small-8">
+            <p><strong class="column">Nombre:</strong>&nbsp;&nbsp;{{producto.nombre}}</p>
+            <p><strong class="column">Cantidad:</strong>&nbsp;&nbsp;{{producto.cantidad_solicitada}}</p>
+            <p><strong class="column">Subtotal:</strong>&nbsp;&nbsp;${{producto.valor * producto.cantidad_solicitada|number}}</p>
+          </div>
+        </div>
       </div>
       <div class="column ">
-        <strong>tt</strong>
-
+        <h2><strong>Total</strong>: ${{valorTotal|number}}</h2>
+        <div class="column small-6">
+          <div class="small stacked-for-small button-group">
+            <input type="button" class="hollow button secondary" value="Cancelar" >
+            <input (click)="pagarPedido()" type="button" class=" button warning" value="Pagar" >
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
 </div>

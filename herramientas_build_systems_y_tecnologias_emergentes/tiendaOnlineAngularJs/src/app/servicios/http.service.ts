@@ -5,36 +5,54 @@ import 'rxjs/Rx';
 @Injectable()
 export class HttpService {
   private URL = 'http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php'
+  private datoProductos: string[] = [];
 
   constructor(private http: Http) { }
-
-  getDatos(){
-    var url = this.URL;
-    
-    return this.http.get(url)
-        .map((response: Response) => response.json())
-  }
 
   logearse( correo: string, contrasenia: string){
 
     let cuerpo = JSON.stringify({correo, contrasenia});
     var url = this.URL+"?query=login";
-    
     return this.http.post(url, cuerpo)
-        .map((response: Response) => response.json())
+      .map((response: Response) => response.json())
+
   }
 
+  getPagarPedido() {
+
+    let cuerpo = JSON.stringify(this.datoProductos);
+    var url = this.URL+"?query=pedido";
+    console.log(url)
+    // this.datoProductos = [];
+    return this.http.post(url, cuerpo)
+      .map((response: Response) => response.json())
+
+  }
+  
   getProductos(){
+
     var url = this.URL+"?query=productos";
-    
+    console.log(url)
     return this.http.get(url)
-        .map((response: Response) => response.json())
+      .map((response: Response) => response.json())      
+
   }
 
   getProducto(id: number) {
+
     var url = this.URL+"?query=producto&id="+id;
-    
+    console.log(url)
     return this.http.get(url)
-        .map((response: Response) => response.json())
+      .map((response: Response) => response.json())
+
   }
+
+  productoAComprar(producto) {
+    this.datoProductos.push(producto)
+  }
+
+  getProductosCarrito() {
+    return this.datoProductos;
+  }
+
 }
