@@ -2,9 +2,6 @@ import React from 'react';
 import * as request from 'superagent';
 import { AsyncStorage } from 'AsyncStorage';
 
-// import './Login.css';
-
-
 var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=";
 
 class Login extends React.Component{
@@ -12,30 +9,24 @@ class Login extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      correo: 'gabir_sanchez@hotmail.com',
-      contrasenia: 'Gabir123',
+      correo: '',
+      contrasenia: '',
     }
 
     this.logearse = this.logearse.bind(this)
     this.cambiosInput = this.cambiosInput.bind(this)
   }
 
-  // async saveItem(item, value) {
-  //   try {
-  //     await AsyncStorage.setItem(item, value);
-  //   } catch (error) {
-  //     Alert.alert('AsyncStorage error', error.message);
-  //   }
-  // }
-
-
-
   logearse(){
+
     if(this.state.correo != "" && this.state.contrasenia != "") {
       // console.log(url+"login")
       request
         .post(url+"login")
-        .set('Content-Type': 'application/json')
+        .set('accept', 'json')
+        .use(prefix) // Prefixes *only* this request
+        .use(nocache) // Prevents caching of *only* this request
+        // .set('Content-Type': 'application/json')
         .field({
           correo: this.state.correo,
           contrasenia: this.state.contrasenia

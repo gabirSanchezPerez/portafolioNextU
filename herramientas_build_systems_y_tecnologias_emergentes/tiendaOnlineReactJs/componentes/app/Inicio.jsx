@@ -1,29 +1,52 @@
 import React from 'react';
 import * as request from 'superagent';
+// import _ from 'lodash';
 import { AsyncStorage } from 'AsyncStorage';
 import { NavLink } from 'react-router-dom';
 
 import Menu from './Menu.jsx';
 
-let url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=productos";
+let url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=";
 class Inicio extends React.Component {
 
-  // componentWillMount() {
-  //   console.log("component url " + url);
-  //   request
-  //     .post(url)
-  //     .set('Content-Type': 'application/json')
-  //     .end((error, response) => {
-  //       if (!error || response) {
-  //         console.log('Response',  response);
-  //         // this.setState({ logeado: true });
-  //       } else {
-  //         console.log('ERRR ', error);
-  //       }
-  //     });
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      productos: []
+    }
+  }
+
+  componentWillMount() {
+    // console.log("component url " + url);
+    request
+      .get(url+"productos")
+      // .then()
+      .set('Content-Type': 'application/json')
+      .end((err, res) => {
+        console.log('RESPONSE',  res);
+        if (err || !res.ok) {
+          console.log('ERRR ', err);
+        } else {
+
+          this.setState({ productos : JSON.parse(res.text)});
+        }
+      });
+
+    // fetch(url +"productos", {
+    //         method: "POST",
+    //       })
+    //       .then((response) => response.json())
+    //       .then((res) => {
+    //         console.log(res)
+    //           this.setState({ productos: res });
+    //       })
+    //       .catch((error) => {
+    //          console.log(JSON.stringify(error))
+    //       });
+  }
 
   render() {
+
     return ( 
       <section className="body">
         <Menu></Menu>
@@ -39,104 +62,26 @@ class Inicio extends React.Component {
               </div>
             </div>
             <div className="row">
+              { this.state.productos.map((prd, i) => 
               <div className="small-12 medium-4 large-3 column">
                 <div className="card">
                   <div className="text-center">
-                    <img className="" src="./assets/img/productos/ajo.jpg" />
+                    <img className="" src={'./assets/img/productos/'+prd.imagen} />
                   </div>
                   <div className="card-section">
-                    <p><strong>NOMBRE</strong></p>
-                    <p>Precio: $200.000</p>
-                    <p>Unidades disponibles: 3000</p>
+                    <p><strong>{prd.nombre}</strong></p>
+                    <p>Precio: ${prd.valor}</p>
+                    <p>Unidades disponibles: {prd.cantidad}</p>
                 
                       <div className=" row small-12 padding-horizontal-1">
-                        <NavLink to="/catalogo/1" className="small-4 button primary">Ver más</NavLink>
+                        <NavLink to={'/catalogo/'+prd.id} className="small-4 button primary">Ver más</NavLink>
                         <input type="button" className="small-offset-1 small-3 button warning" value="Añadir" />
                         <input type="number" className="column text-right" value="" />
                       </div>
                   </div>
                 </div>
               </div>
-
-              <div className="small-12 medium-4 large-3 column">
-                <div className="card">
-                  <div className="text-center">
-                    <img className="" src="./assets/img/productos/ajo.jpg" />
-                  </div>
-                  <div className="card-section">
-                    <p><strong>NOMBRE</strong></p>
-                    <p>Precio: $200.000</p>
-                    <p>Unidades disponibles: 3000</p>
-                
-                      <div className=" row small-12 padding-horizontal-1">
-                        <a className="small-4 button primary" href="#">Ver más</a>
-                        <input type="button" className="small-offset-1 small-3 button warning" value="Añadir" />
-                        <input type="number" className="column text-right" value="" />
-                      </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="small-12 medium-4 large-3 column">
-                <div className="card">
-                  <div className="text-center">
-                    <img className="" src="./assets/img/productos/ajo.jpg" />
-                  </div>
-                  <div className="card-section">
-                    <p><strong>NOMBRE</strong></p>
-                    <p>Precio: $200.000</p>
-                    <p>Unidades disponibles: 3000</p>
-                
-                      <div className=" row small-12 padding-horizontal-1">
-                        <a className="small-4 button primary" href="#">Ver más</a>
-                        <input type="button" className="small-offset-1 small-3 button warning" value="Añadir" />
-                        <input type="number" className="column text-right" value="" />
-                      </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div className="small-12 medium-4 large-3 column">
-                <div className="card">
-                  <div className="text-center">
-                    <img className="" src="./assets/img/productos/ajo.jpg" />
-                  </div>
-                  <div className="card-section">
-                    <p><strong>NOMBRE</strong></p>
-                    <p>Precio: $200.000</p>
-                    <p>Unidades disponibles: 3000</p>
-                
-                      <div className=" row small-12 padding-horizontal-1">
-                        <a className="small-4 button primary" href="#">Ver más</a>
-                        <input type="button" className="small-offset-1 small-3 button warning" value="Añadir" />
-                        <input type="number" className="column text-right" value="" />
-                      </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div className="small-12 medium-4 large-3 column">
-                <div className="card">
-                  <div className="text-center">
-                    <img className="" src="./assets/img/productos/ajo.jpg" />
-                  </div>
-                  <div className="card-section">
-                    <p><strong>NOMBRE</strong></p>
-                    <p>Precio: $200.000</p>
-                    <p>Unidades disponibles: 3000</p>
-                
-                      <div className=" row small-12 padding-horizontal-1">
-                        <a className="small-4 button primary" href="#">Ver más</a>
-                        <input type="button" className="small-offset-1 small-3 button warning" value="Añadir" />
-                        <input type="number" className="column text-right" value="" />
-                      </div>
-                  </div>
-                </div>
-              </div>
-
-
+              )}
             </div>
           </div>
         </div>
