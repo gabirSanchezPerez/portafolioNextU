@@ -18,7 +18,7 @@ class App extends React.Component {
 
   render() {
 
-    if (!this.state.logeado) {
+    if (this.state.logeado) {
       return <div>
         <Route path="/" exact component={Inicio} />
         <Route path="/catalogo/:id" exact component={Detalle} />
@@ -31,7 +31,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-
+    console.log("revisando logeo")
+    if(parseInt(localStorage.getItem("currentUserIdReact")) > 0) {
+      this.setState({ logeado: true});
+    }
   }
 
 }

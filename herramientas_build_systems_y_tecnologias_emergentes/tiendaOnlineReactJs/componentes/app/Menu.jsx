@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 class Menu extends Component {
+
+	salir () {
+		localStorage.removeItem("currentUserIdReact");
+    	location.reload(true)
+	}
+
 	render() {
 		return (
 	      <div className="barra_menu clearfix">
@@ -17,7 +23,7 @@ class Menu extends Component {
 	            <NavLink to="/carrito"> <i className="fas fa-shopping-cart"></i> </NavLink>
 	          </li>
 	          <li >
-	            <a href="#"> <i className="fas fa-sign-out-alt"></i> </a>
+	            <a href="#" onClick = {this.salir} > <i className="fas fa-sign-out-alt"></i> </a> 
 	          </li>
 	        </ul>
 	        

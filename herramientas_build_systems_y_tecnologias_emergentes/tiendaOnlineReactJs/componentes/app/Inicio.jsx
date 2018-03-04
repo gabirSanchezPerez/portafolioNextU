@@ -23,7 +23,7 @@ class Inicio extends React.Component {
       // .then()
       .set('Content-Type': 'application/json')
       .end((err, res) => {
-        console.log('RESPONSE',  res);
+        // console.log('RESPONSE',  res);
         if (err || !res.ok) {
           console.log('ERRR ', err);
         } else {
@@ -31,18 +31,6 @@ class Inicio extends React.Component {
           this.setState({ productos : JSON.parse(res.text)});
         }
       });
-
-    // fetch(url +"productos", {
-    //         method: "POST",
-    //       })
-    //       .then((response) => response.json())
-    //       .then((res) => {
-    //         console.log(res)
-    //           this.setState({ productos: res });
-    //       })
-    //       .catch((error) => {
-    //          console.log(JSON.stringify(error))
-    //       });
   }
 
   render() {
@@ -63,7 +51,7 @@ class Inicio extends React.Component {
             </div>
             <div className="row">
               { this.state.productos.map((prd, i) => 
-              <div className="small-12 medium-4 large-3 column">
+              <div className="small-12 medium-4 large-3 column" key={prd.id.toString()}>
                 <div className="card">
                   <div className="text-center">
                     <img className="" src={'./assets/img/productos/'+prd.imagen} />
