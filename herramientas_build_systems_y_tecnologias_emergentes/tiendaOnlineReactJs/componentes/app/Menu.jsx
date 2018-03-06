@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 class Menu extends Component {
+
+    static propType : {
+	    cantidadProductosCarrito: PropTypes.string.isRequired
+    };
 
 	salir () {
 		localStorage.removeItem("currentUserIdReact");
@@ -9,6 +14,7 @@ class Menu extends Component {
 	}
 
 	render() {
+		const { cantidadProductosCarrito } = this.props;
 		return (
 	      <div className="barra_menu clearfix">
 	        <ul className="menu float-left">
@@ -20,7 +26,10 @@ class Menu extends Component {
 	            <NavLink to="/"> <i className="fas fa-th"></i> </NavLink>
 	          </li>
 	          <li >
-	            <NavLink to="/carrito"> <i className="fas fa-shopping-cart"></i> </NavLink>
+	            <NavLink to="/carrito">
+	            	<i className="fas fa-shopping-cart"></i>
+	            	<span className="badge alert" >{cantidadProductosCarrito}</span>
+	            </NavLink>
 	          </li>
 	          <li >
 	            <a href="#" onClick = {this.salir} > <i className="fas fa-sign-out-alt"></i> </a> 

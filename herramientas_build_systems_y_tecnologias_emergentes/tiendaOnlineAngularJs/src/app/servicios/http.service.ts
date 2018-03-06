@@ -22,8 +22,8 @@ export class HttpService {
 
     let cuerpo = JSON.stringify(this.datoProductos);
     var url = this.URL+"?query=pedido";
-    console.log(url)
-    // this.datoProductos = [];
+    
+    this.datoProductos = [];
     return this.http.post(url, cuerpo)
       .map((response: Response) => response.json())
 

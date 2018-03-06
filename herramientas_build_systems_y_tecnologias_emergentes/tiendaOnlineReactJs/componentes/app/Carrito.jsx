@@ -3,10 +3,19 @@ import React, { Component } from 'react';
 import Menu from './Menu.jsx';
 
 class Carrito extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+		  productos: [],
+		  prdSeleccionado: []
+		}
+	}
+
 	render() {
 		return (
 	      	<section className="body">
-	      	<Menu></Menu>
+	      	<Menu cantidadProductosCarrito={this.state.prdSeleccionado.length}></Menu>
 
 			<div className=" row ">
 			  <div className="carrito">

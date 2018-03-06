@@ -1,6 +1,5 @@
 import React from 'react';
 import * as request from 'superagent';
-import { AsyncStorage } from 'AsyncStorage';
 import { NavLink } from 'react-router-dom';
 
 var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=";

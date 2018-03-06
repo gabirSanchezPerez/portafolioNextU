@@ -32,8 +32,20 @@ export class CarritoComponent implements OnInit {
 
   pagarPedido() {
     // Afectar BD
-    this.httpService.getPagarPedido()
-    // Redireccionar
-    // this.router.navigate(['/catalogo']);
+    this.httpService.getPagarPedido()    
+      .subscribe(
+      (data) => { 
+        let aux : any[] = [];
+        for(let key in data){
+          aux.push(data[key])
+        }
+          console.log(aux);
+          this.router.navigate(['/catalogo']);
+      },
+      (error) => { 
+        console.log(error);
+        return error
+       }
+    );
   }
 }

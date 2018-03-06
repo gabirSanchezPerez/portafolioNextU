@@ -139,6 +139,12 @@ li:hover, .activo{
     background: #fefefe;
 }
 
+.badge {
+  font-weight: bolder;
+  padding: 5px;
+  float: right;
+}
+
 .carrito{
     background: #FFF;
     color: #5d5d5d;

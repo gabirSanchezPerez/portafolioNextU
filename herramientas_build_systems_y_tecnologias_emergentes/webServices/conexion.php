@@ -39,7 +39,7 @@ class conexion {
 
      public function actualizar($update = "", $set = "", $where = "") {
           $sql = $update . " " . $set . " " . $where;
-//          die($sql);
+          // die($sql);
           $result = $this->link->query($sql);
           return $result; //
      }

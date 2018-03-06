@@ -66,28 +66,25 @@ if($dato == "producto"){
 }
 
 if($dato == "pedido"){
-	print_r($_REQUEST);die();
 	$json = file_get_contents('php://input');
 	$objPost = json_decode($json);
 
+	// die(json_encode($objPost));
 	// Consulta de login
 	require_once("conexion.php");
 	$cone = new conexion();
-	// echo "<pre>"; print_r($objPost);die();
-	if(!empty($objPost)){
-		$resultado = $cone->seleccionar("SELECT * ", "FROM usuarios u", " where (u.usuario = '" .$objPost->correo . "' OR correo = '" .$objPost->correo . "' ) AND contrasenia = '" . $objPost->contrasenia . "' ");
-	} else {
-		$resultado = $cone->seleccionar("SELECT * ", "FROM usuarios u", " where (u.usuario = '" .$_REQUEST['correo'] . "' OR correo = '" .$_REQUEST['correo'] . "' ) AND contrasenia = '" . $_REQUEST['contrasenia'] . "' ");
+	$resultado = array();
 
+	foreach ($objPost as $k => $v) {
+	// echo "<pre>"; print_r($v);
+		if(!empty($v)){
+			$resultado[] = $cone->actualizar("UPDATE productos ", " SET cantidad = (cantidad - ".$v->cantidad_solicitada.")", " where productos.id = " .$v->id);
+		} 
 	}
-	$rtaUsuario = array();
-
-	if ($resultado->num_rows > 0) {
-		$rtaUsuario = $resultado->fetch_assoc();
-	}
-	$resultado->close();
+	// die();
+	$cone->cerrar();
 	 
-	die(json_encode($rtaUsuario));
+	die(json_encode($resultado));
 }
 
 

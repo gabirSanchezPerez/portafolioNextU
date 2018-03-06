@@ -11,7 +11,8 @@ class Detalle extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			producto: []
+			producto: [],
+			prdSeleccionado: []
 		}
 	}
 
@@ -21,7 +22,7 @@ class Detalle extends Component {
       	let productoId = this.props.match.params.id; //;//this.props.match.params.index;
       	request
       	.get(url+'producto&id='+productoId)
-        .end((err, res)=>{
+        .end((err, res) => {
             if(err || !res.ok){
                 console.log("Error en la peticion: "+err);
             }else{
@@ -35,7 +36,7 @@ class Detalle extends Component {
 		
 		return (
 		  <section className="body">
-		  	<Menu></Menu>
+		  	<Menu cantidadProductosCarrito={this.state.prdSeleccionado.length} ></Menu>
 	        
 	        <div className=" row ">
 	          <div className="catalogo">
