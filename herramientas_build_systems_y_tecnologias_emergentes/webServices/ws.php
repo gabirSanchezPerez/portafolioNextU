@@ -75,11 +75,18 @@ if($dato == "pedido"){
 	$cone = new conexion();
 	$resultado = array();
 
-	foreach ($objPost as $k => $v) {
-	// echo "<pre>"; print_r($v);
-		if(!empty($v)){
-			$resultado[] = $cone->actualizar("UPDATE productos ", " SET cantidad = (cantidad - ".$v->cantidad_solicitada.")", " where productos.id = " .$v->id);
-		} 
+	if(!empty($objPost)){ //ANGULAR 2
+		foreach ($objPost as $k => $v) {
+			if(!empty($v)){
+				$resultado[] = $cone->actualizar("UPDATE productos ", " SET cantidad = (cantidad - ".$v->cantidad_solicitada.")", " where productos.id = " .$v->id);
+			} 
+		}
+	} else {
+		for ($i = 1; $i < (count($_REQUEST) -2); $i++) {
+			if(!empty($_REQUEST[$i])){
+				// $resultado[] = $cone->actualizar("UPDATE productos ", " SET cantidad = (cantidad - ".$_REQUEST[$i]['cantidad_solicitada'].")", " where productos.id = " .$_REQUEST[$i]['id']);
+			} 
+		}
 	}
 	// die();
 	$cone->cerrar();

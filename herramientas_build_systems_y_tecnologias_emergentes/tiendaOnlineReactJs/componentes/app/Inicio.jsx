@@ -1,7 +1,5 @@
 import React from 'react';
 import * as request from 'superagent';
-// import _ from 'lodash';
-// import { AsyncStorage } from 'AsyncStorage';
 import { NavLink } from 'react-router-dom';
 
 import Menu from './Menu.jsx';
@@ -20,40 +18,56 @@ class Inicio extends React.Component {
       txt_filtro: '',
     }
 
+    this.cambiosInput = this.cambiosInput.bind(this)
     this.filtrarProductos = this.filtrarProductos.bind(this)
     this.anadirCarrito = this.anadirCarrito.bind(this)
-    this.cambiosInput = this.cambiosInput.bind(this)
   }
 
   filtrarProductos(e) {
-    this.setState({txt_filtro: e.target.value}); 
-    var txt_flt = this.state.txt_filtro
+    try {
+      this.setState({txt_filtro: e.target.value}); 
+      let txt_flt = this.state.txt_filtro
 
-    var updateList = this.state.productosAux.filter(
-      function (item) {
-        if (item.nombre !== null && item.nombre.toLowerCase().search(txt_flt.toLowerCase()) > -1) {
-            return item; 
-        }
-        return false;
-    })
-    this.setState({productos: updateList});    
+      let updateList = this.state.productosAux.filter(
+        function (item) {
+          if (item.nombre !== null && item.nombre.toLowerCase().search(txt_flt.toLowerCase()) > -1) {
+              return item; 
+          }
+          return false;
+      })
+      this.setState({productos: updateList});    
+
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   anadirCarrito(prd_sel, refName) {
-    prd_sel.cantidad_seleccionada = 4;
-    console.log(prd_sel)
-    console.log(refName)
+    prd_sel.cantidad_solicitada = 4;
+    // console.log(refName.cant_4)
 
     prd_sel_aux.push(prd_sel)
+    localStorage.setItem('currentPrdSelectReact', JSON.stringify(prd_sel_aux));
     this.setState({prdSeleccionado: prd_sel_aux});
   }
 
   cambiosInput(e){
-    this.setState({[e.target.name]: e.target.value});    
+    e.preventDefault();
+      // console.log(e)
+    try {
+
+      this.setState({[e.target.name]: e.target.value});    
+    } catch (err) {
+    }
   }
 
   componentWillMount() {
-    // console.log(this.props.match)
+    if (localStorage.getItem("currentPrdSelectReact") !== null) {
+      prd_sel_aux = JSON.parse(localStorage.getItem("currentPrdSelectReact"))
+      this.setState({prdSeleccionado: prd_sel_aux});
+      // console.log(prd_sel_aux)
+    }
+
     request
       .get(url+"productos")
       .set('Content-Type': 'application/json')
@@ -70,6 +84,7 @@ class Inicio extends React.Component {
 
   render() {
 
+    // console.log( this.props )
     return ( 
       <section className="body">
         <Menu cantidadProductosCarrito={this.state.prdSeleccionado.length}></Menu>
@@ -98,8 +113,8 @@ class Inicio extends React.Component {
                 
                       <div className=" row small-12 padding-horizontal-1">
                         <NavLink to={'/catalogo/'+prd.id} className="small-4 button primary">Ver más</NavLink>
-                        <input type="button" onClick={() => this.anadirCarrito(prd, 'cant_'+prd.id)} className="small-offset-1 small-3 button warning" value="Añadir"  />
-                        <input type="number" ref={'cant_'+prd.id} name={'cant_'+prd.id} onChange={this.cambiosInput} className="column text-right" value="1" />
+                        <input type="button" onClick={() => this.anadirCarrito(prd, this.refs)} className="small-offset-1 small-3 button warning" value="Añadir"  />
+                        <input type="number" ref={'cant_'+prd.id} name={'cant_'+prd.id} id={'cant_'+prd.id} onChange={this.cambiosInput} className="column text-right" value="1" />
                       </div>
                   </div>
                 </div>

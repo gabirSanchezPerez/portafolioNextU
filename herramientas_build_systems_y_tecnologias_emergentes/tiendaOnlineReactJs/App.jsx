@@ -1,5 +1,4 @@
 import React from 'react';
-import { AsyncStorage } from 'AsyncStorage';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Login from './componentes/login/Login.jsx'
@@ -12,7 +11,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      logeado: false
+      logeado: false,
+      contador: 2,
     }
   }
 
@@ -20,7 +20,7 @@ class App extends React.Component {
 
     if (this.state.logeado) {
       return <div>
-        <Route path="/" exact component={Inicio} />
+        <Route  staticContext={this.state.contador} path="/" exact component={Inicio} />
         <Route path="/catalogo/:id" exact component={Detalle} />
         <Route path="/carrito" component={Carrito} />
       </div>

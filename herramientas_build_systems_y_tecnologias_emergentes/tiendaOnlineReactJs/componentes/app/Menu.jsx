@@ -10,7 +10,7 @@ class Menu extends Component {
 
 	salir () {
 		localStorage.removeItem("currentUserIdReact");
-    	location.reload(true)
+		 window.location.href='/';
 	}
 
 	render() {
@@ -28,7 +28,13 @@ class Menu extends Component {
 	          <li >
 	            <NavLink to="/carrito">
 	            	<i className="fas fa-shopping-cart"></i>
-	            	<span className="badge alert" >{cantidadProductosCarrito}</span>
+	            	{ cantidadProductosCarrito > 0 ? (
+	            		<span className="badge alert" >{cantidadProductosCarrito}</span>
+	            		) : (
+	            		<span ></span>
+	            		)
+	            	}
+	            	
 	            </NavLink>
 	          </li>
 	          <li >

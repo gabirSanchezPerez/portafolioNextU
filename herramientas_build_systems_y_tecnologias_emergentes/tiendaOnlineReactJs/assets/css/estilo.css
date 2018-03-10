@@ -177,3 +177,19 @@ li:hover, .activo{
     border: 1px solid #bdbcbc;
     color: #727272 !important;
 }
+
+div.alert {
+    margin-top: 1rem;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    width: 100%;
+}
+
+div.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    border-left: 3px solid #a94442;
+    color: #a94442;
+}

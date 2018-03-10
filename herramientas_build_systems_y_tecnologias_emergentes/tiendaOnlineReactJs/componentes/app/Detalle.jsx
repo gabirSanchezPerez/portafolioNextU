@@ -18,7 +18,11 @@ class Detalle extends Component {
 
 	componentWillMount(){
 		// this.props.match.params.id
-		console.log(this.props.match)
+		if (localStorage.getItem("currentPrdSelectReact") !== null) {
+			let prd_sel_aux = JSON.parse(localStorage.getItem("currentPrdSelectReact"))
+			this.setState({prdSeleccionado: prd_sel_aux});
+		}
+
       	let productoId = this.props.match.params.id; //;//this.props.match.params.index;
       	request
       	.get(url+'producto&id='+productoId)
