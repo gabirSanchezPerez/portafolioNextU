@@ -18,15 +18,13 @@ class Inicio extends React.Component {
       txt_filtro: '',
     }
 
-    this.cambiosInput = this.cambiosInput.bind(this)
-    this.filtrarProductos = this.filtrarProductos.bind(this)
-    this.anadirCarrito = this.anadirCarrito.bind(this)
+    // this.cambiosInput = this.cambiosInput.bind(this)
   }
 
   filtrarProductos(e) {
     try {
       this.setState({txt_filtro: e.target.value}); 
-      let txt_flt = this.state.txt_filtro
+      let txt_flt = e.target.value
 
       let updateList = this.state.productosAux.filter(
         function (item) {
@@ -43,8 +41,9 @@ class Inicio extends React.Component {
   }
 
   anadirCarrito(prd_sel, refName) {
-    prd_sel.cantidad_solicitada = 4;
-    // console.log(refName.cant_4)
+    let idProductInput = document.getElementById("cant_"+refName).value;
+    console.log(idProductInput+'??'+refName)
+    prd_sel.cantidad_solicitada = idProductInput;
 
     prd_sel_aux.push(prd_sel)
     localStorage.setItem('currentPrdSelectReact', JSON.stringify(prd_sel_aux));
@@ -52,13 +51,8 @@ class Inicio extends React.Component {
   }
 
   cambiosInput(e){
-    e.preventDefault();
-      // console.log(e)
-    try {
-
-      this.setState({[e.target.name]: e.target.value});    
-    } catch (err) {
-    }
+    console.log(e.target.value)
+    this.setState({[e.target.name]: e.target.value});    
   }
 
   componentWillMount() {
@@ -96,7 +90,7 @@ class Inicio extends React.Component {
               </div>
               <div className="column small-offset-5">
                 <strong>¿Que estas buscando?</strong>
-                <input type="text" value={this.state.txt_filtro} placeholder="Buscar producto" onChange={this.filtrarProductos} />
+                <input type="text" value={this.state.txt_filtro} placeholder="Buscar producto" onChange={this.filtrarProductos.bind(this)} />
               </div>
             </div>
             <div className="row">
@@ -113,8 +107,9 @@ class Inicio extends React.Component {
                 
                       <div className=" row small-12 padding-horizontal-1">
                         <NavLink to={'/catalogo/'+prd.id} className="small-4 button primary">Ver más</NavLink>
-                        <input type="button" onClick={() => this.anadirCarrito(prd, this.refs)} className="small-offset-1 small-3 button warning" value="Añadir"  />
-                        <input type="number" ref={'cant_'+prd.id} name={'cant_'+prd.id} id={'cant_'+prd.id} onChange={this.cambiosInput} className="column text-right" value="1" />
+                        <input type="button" onClick={() => this.anadirCarrito(prd, prd.id)} className="small-offset-1 small-3 button warning" value="Añadir"  />
+                        <input id={"cant_"+prd.id} type="number" defaultValue="1" onChange={this.cambiosInput} className="column text-right prueba"/>
+                        {/*<input type="number" ref={'cant_'+prd.id} onChange={this.cambiosInput} className="column text-right" value="1" />*/}
                       </div>
                   </div>
                 </div>
