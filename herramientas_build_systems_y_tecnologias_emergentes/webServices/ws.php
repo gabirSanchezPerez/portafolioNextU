@@ -23,7 +23,7 @@ if($dato == "login"){
 	if ($resultado->num_rows > 0) {
 		$rtaUsuario = $resultado->fetch_assoc();
 	}
-	$resultado->close();
+	// $resultado->close();
 	 
 	die(json_encode($rtaUsuario));
 }
@@ -41,7 +41,7 @@ if($dato == "productos"){
 			$rtaUsuario[] = $row; 
 		}
 	}
-	$resultado->close();
+	// $resultado->close();
 	 
 	die(json_encode($rtaUsuario));
 }
@@ -60,7 +60,7 @@ if($dato == "producto"){
 			$rtaUsuario = $row; 
 		}
 	}
-	$resultado->close();
+	// $resultado->close();
 	 
 	die(json_encode($rtaUsuario));
 }
@@ -89,7 +89,7 @@ if($dato == "pedido"){
 		}
 	}
 	// die();
-	$cone->cerrar();
+	// $cone->cerrar();
 	 
 	die(json_encode($resultado));
 }

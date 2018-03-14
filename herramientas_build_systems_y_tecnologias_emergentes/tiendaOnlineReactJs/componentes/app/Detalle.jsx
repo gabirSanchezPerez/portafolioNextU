@@ -4,7 +4,7 @@ import * as request from 'superagent';
 
 import Menu from './Menu.jsx';
 
-let url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=";
+let url = "https://nextu.000webhostapp.com/webServicesNext/ws.php";
 
 class Detalle extends Component {
 
@@ -25,7 +25,7 @@ class Detalle extends Component {
 
       	let productoId = this.props.match.params.id; //;//this.props.match.params.index;
       	request
-      	.get(url+'producto&id='+productoId)
+      	.get(url+'?query=producto&id='+productoId)
         .end((err, res) => {
             if(err || !res.ok){
                 console.log("Error en la peticion: "+err);

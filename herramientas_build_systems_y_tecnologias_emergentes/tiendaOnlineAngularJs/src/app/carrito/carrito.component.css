@@ -1,4 +1,12 @@
+ .body {
+    background: url("../../assets/img/main-fondo.jpg");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+   }
+   
 .carrito{
+    background: url("../../assets/img/main-fondo.jpg");
     background: #FFF;
     color: #5d5d5d;
     padding: 1.5rem 1.5rem 0px;

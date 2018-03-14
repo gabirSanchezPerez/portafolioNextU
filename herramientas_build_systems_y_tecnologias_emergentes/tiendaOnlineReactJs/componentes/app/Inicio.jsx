@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import Menu from './Menu.jsx';
 
-let url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=";
+let url = "https://nextu.000webhostapp.com/webServicesNext/ws.php";
 let prd_sel_aux = []
 
 class Inicio extends React.Component {
@@ -63,7 +63,7 @@ class Inicio extends React.Component {
     }
 
     request
-      .get(url+"productos")
+      .get(url+"?query=productos")
       .set('Content-Type': 'application/json')
       .end((err, res) => {
         // console.log('RESPONSE',  res);

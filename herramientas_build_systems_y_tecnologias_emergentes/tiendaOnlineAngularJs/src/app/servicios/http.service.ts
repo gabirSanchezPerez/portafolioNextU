@@ -4,7 +4,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class HttpService {
-  private URL = 'http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php'
+  private URL = 'https://nextu.000webhostapp.com/webServicesNext/ws.php'
   private datoProductos: string[] = [];
 
   constructor(private http: Http) { }

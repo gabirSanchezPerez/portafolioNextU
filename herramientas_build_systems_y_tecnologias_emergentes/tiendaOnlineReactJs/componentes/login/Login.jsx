@@ -2,7 +2,7 @@ import React from 'react';
 import * as request from 'superagent';
 import { NavLink } from 'react-router-dom';
 
-var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=";
+var url = "https://nextu.000webhostapp.com/webServicesNext/ws.php";
 
 class Login extends React.Component{
 
@@ -22,9 +22,9 @@ class Login extends React.Component{
     event.preventDefault();
 
     if(this.state.correo != "" && this.state.contrasenia != "") {
-      console.log(url+"login")
+      // console.log(url+"?query=login")
       request
-        .post(url+"login")
+        .post(url+"?query=login")
         .set('Content-Type': 'application/json')
         .field({
           // query: 'login',

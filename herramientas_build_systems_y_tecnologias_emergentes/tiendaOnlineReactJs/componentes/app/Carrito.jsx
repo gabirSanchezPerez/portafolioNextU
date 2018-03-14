@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as request from 'superagent';
 
 import Menu from './Menu.jsx';
-var url = "http://127.0.0.1/portafolioNextU/herramientas_build_systems_y_tecnologias_emergentes/webServices/ws.php?query=";
+var url = "https://nextu.000webhostapp.com/webServicesNext/ws.php";
 
 class Carrito extends Component {
 
@@ -18,7 +18,7 @@ class Carrito extends Component {
 
 	pagarPedido() {
 		request
-        .post(url+"pedido")
+        .post(url+"?query=pedido")
         .set('Content-Type': 'application/json')
         .send(
                 JSON.stringify(this.state.prdSeleccionado)

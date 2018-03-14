@@ -2,10 +2,10 @@
 
 class conexion {
 
-     private $servidor = "localhost";
-     private $usuario = "root";
-     private $contrasena = "";
-     private $baseDatos = "hrtas_emegentes";
+     private $servidor = "nextu.000webhostapp.com";
+     private $usuario = "nextu_hbste";
+     private $contrasena = "nextu_hbste_123";
+     private $baseDatos = "id5050023_hrtas_emegentes";
      public $link;
 
      function __construct() {
