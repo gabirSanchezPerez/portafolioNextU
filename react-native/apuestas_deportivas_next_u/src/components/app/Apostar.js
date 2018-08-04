@@ -3,12 +3,12 @@ import { View, Text } from 'react-native';
 
 import ListaDB from './ListaDB';
 
-class Futbol extends Component {
+class Apostar extends Component {
   
   render() {
     return (
       	<View style={styles.container}>
-	        <ListaDB deporte={'Futbol'} /> 
+	        <ListaDB deporte={'Apostar'} /> 
       	</View>
     );
   }
@@ -25,4 +25,4 @@ const styles = {
   },
 };
 
-export default Futbol;
+export default Apostar;

@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Actions } from 'react-native-router-flux';
 
 class Menu extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-                <TouchableOpacity 
+		        <TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => {this.onPostulanteProceso(postulante)}}>
-                    <Icon name="futbol-o" size={50} color="#293229" />
-                    <Text style={styles.txtBtnMenu}>Fútbol</Text>
-                </TouchableOpacity>
+		          	onPress={() => {Actions.Futbol()}}>
+		          		<Icon name="futbol-o" size={50} color="#293229" />
+		          		<Text style={styles.txtBtnMenu}>Fútbol</Text>
+		        </TouchableOpacity>
 
-                <TouchableOpacity 
+		        <TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => {this.onPostulanteProceso(postulante)}}>
-                    <Icon name="dribbble" size={50} color="#FF2200" />
-                    <Text style={styles.txtBtnMenu}>Baloncesto</Text>
-                </TouchableOpacity>
+		          	onPress={() => {Actions.Baloncesto()}}>
+		          		<Icon name="dribbble" size={50} color="#FF2200" />
+		          		<Text style={styles.txtBtnMenu}>Baloncesto</Text>
+		        </TouchableOpacity>
 
-                <TouchableOpacity 
+		        <TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => {this.onPostulanteProceso(postulante)}}>
-                    <Icon name="money" size={50} color="#4E884F" />
-                    <Text style={styles.txtBtnMenu}>Apostar</Text>
-                </TouchableOpacity>
+		          	onPress={() => {Actions.Apostar()}}>
+				      	<Icon name="money" size={50} color="#4E884F" />
+				      	<Text style={styles.txtBtnMenu}>Apostar</Text>
+		        </TouchableOpacity>
 
 				<TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => {this.onPostulanteProceso(postulante)}}>
-                    <Icon name="user" size={50} color="#29A1D5" />
-                    <Text style={styles.txtBtnMenu}>Perfil</Text>
-                </TouchableOpacity>
+		        	onPress={() => {Actions.Perfil()}}>
+		          		<Icon name="user" size={50} color="#29A1D5" />
+		          		<Text style={styles.txtBtnMenu}>Perfil</Text>
+		        </TouchableOpacity>
 			</View>
 		);
 	}

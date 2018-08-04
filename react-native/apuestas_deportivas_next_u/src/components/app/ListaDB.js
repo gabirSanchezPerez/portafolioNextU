@@ -1,81 +1,153 @@
 import React, { Component } from 'react';
-import { View, ListView, Alert, Text } from 'react-native';
+import { View, ListView, Alert, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import firebase from 'firebase';
+// import firebase from 'firebase';
+import { BarraInferior } from '../lib';
 
 import Linea from './LineaDB'
+
+import { connect } from 'react-redux';
+import { watchDeporteData } from './../../reducers/reducer';
+
+let cont = 0;
+let paisAUx = "";
 
 class ListaDB extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      dataSource: new ListView.DataSource(
-        { rowHasChanged: (row1, row2) => row1 !== row2, }
-      ),
-    }
+    
+    cont = 0;
   }
 
+  componentWillMount() {
+  
+    const ds = new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2
+    });
+    this.dataSource = ds.cloneWithRows(this.props.deportes);
+  
+  }
+	
 	render() {
 		return (
-			<View style={styles.container}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderLinea.bind(this)}
-          enableEmptySections={true} />
+			<View style={styles.containerPrincipal}>
+        		<ListView
+          			dataSource={this.dataSource}
+          			renderRow={this.renderLinea.bind(this)}
+          			enableEmptySections={true} />
+          		<BarraInferior />
 			</View>
 		);
 	}
 
-  componentDidMount() {
-    const datosObtenidos = firebase.database().ref('Deportes');
+  renderLinea(lista) { 
+    //console.warn(lista);
 
-    procesarDatosObtenidos();
+    if(this.props.deporte === lista.tipo){
+	 	return (
+	        <View >
+	          {this.renderBandera(lista)}
+	          <Linea infoLista={lista} posicion={cont++}/>
+	        </View>
+	  	);
+    } else {
+    	return (
+	        <View >
+	          {cont == 0 ? (
+	          	<View >
+		        <Text style={styles.txtStyles}>Proximos Encuentros</Text>
+		        </View>
+	          	) : (
+	          	<View />
+	          	)
+	          }
+	          	<Linea infoLista={lista} posicion={cont++}/>
+	        </View>
+      	);
+    }
   }
 
-  procesarDatosObtenidos(datosObtenidos){
-
-    datosObtenidos.on('value', (items) => {
-
-      var linea = [];
-      items.forEach((item) => {
-        linea.push({
-          equipo1: item.val().equipo1,
-          equipo2: item.val().equipo2,
-          rta1: item.val().rta1,
-          rta2: item.val().rta2,
-          bandera: item.val().bandera,
-          tipo: item.val().tipo,
-          id: item.val().id,
-          pais: item.val().pais,
-          _key: item.key
-        });
-      });
-      
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(linea)
-      });
-    });
-
+  obtenerFecha() {
+    let d = new Date();
+    let mes = d.getMonth() + 1
+    if (mes.length < 10) {
+    	mes = "0"+mes;
+    } 
+    let dia = d.getDate()
+    if (dia.length < 10) {
+    	dia = "0"+dia;
+    } 
+    return d.getFullYear()+"-"+ mes + "-" + dia
   }
 
-  renderLinea(Lista) { 
-    // Alert.alert('Lista ',JSON.stringify(Lista));
-    return (
-      <View>
-        <Text>123 aca {Lista.id}</Text>
-      </View>
-    );
-  }
+  renderBandera(lista){
+
+    if(paisAUx != lista.pais) {
+      paisAUx = lista.pais;
+      return (
+        <View style={styles.contenedorSecundario}>
+          <Image
+            style={styles.imageStyles}
+            source={{ uri: lista.bandera }}
+          />
+          <Text style={styles.txtStyles}>{lista.pais}</Text>
+        </View>
+      );
+    } 
+
+  }  
 
 }
 
 const styles = {
+  containerPrincipal: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  contenedorSecundario:{
+    flex: 1,
+    flexDirection: 'row',
+  },
+  imageStyles: {
+      height: 40,
+      width: 40,
+      margin: 10
+  },
+  txtStyles: {
+    fontSize: 20,
+    margin: 10,
+    fontWeight: '700',
+  },
   container: {
-  	flexDirection: 'row',
-  	flexWrap: 'wrap',
-  	justifyContent: 'space-around',
+    backgroundColor: '#EEE',
+    margin: 10,
+  },
+  container2: {
+    backgroundColor: '#DDD',
+    marginLeft: 10,
+    marginRight: 10,
   },
 };
 
-export default ListaDB;
+
+// const mapStateToProps = (state) => {
+//  return { };
+// }
+const mapStateToProps = state => ({ 
+	deportes: state.deportes 
+});
+
+// const mapDispatchToProps = (dispatch) => {
+//  return { };
+// }
+
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    watchDeporteData: () => { dispatch(watchDeporteData()) }
+  };
+}
+
+//export default ListaDB;
+export default connect(mapStateToProps, mapDispatchToProps)(ListaDB);

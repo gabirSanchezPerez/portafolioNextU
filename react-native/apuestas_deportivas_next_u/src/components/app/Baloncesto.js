@@ -3,13 +3,13 @@ import { View, Text } from 'react-native';
 
 import ListaDB from './ListaDB';
 
-class Futbol extends Component {
+class Baloncesto extends Component {
   
   render() {
     return (
-      	<View style={styles.container}>
-	        <ListaDB deporte={'Futbol'} /> 
-      	</View>
+      <View style={styles.container}>
+        <ListaDB deporte={'Baloncesto'} />
+      </View>
     );
   }
 
@@ -17,12 +17,11 @@ class Futbol extends Component {
 
 const styles = {
   container: {
-  	flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     backgroundColor: '#FFF',
     height: '100%'
   },
 };
 
-export default Futbol;
+export default Baloncesto;

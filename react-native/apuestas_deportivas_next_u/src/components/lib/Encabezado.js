@@ -34,9 +34,9 @@ const styles = {
         fontSize: 20,
     },
     textRight: {
-        color: '#777',
+        color: '#494949',
         fontSize: 15,
-
+        paddingRight: 6
     }
 };
 
