@@ -1,0 +1,42 @@
+import React from 'react';
+import { View, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const BarraInferior = (props) => {
+    const { contenedor, item } = styles;
+    return (
+        <View style={contenedor}>
+            <TouchableOpacity style={item}>
+                <Icon name="home" size={30} color="#000" />
+            </TouchableOpacity>
+            <TouchableOpacity style={item}>
+                <Icon name="futbol-o" size={30} color="#000" />
+            </TouchableOpacity>
+            <TouchableOpacity style={item}>
+                <Icon name="dribbble" size={30} color="#000" />
+            </TouchableOpacity>
+            <TouchableOpacity style={item}>
+                <Icon name="money" size={30} color="#000" />
+            </TouchableOpacity>
+        </View>
+    );
+};
+
+const styles = {
+    contenedor: {
+        height: 50,
+        backgroundColor: '#E5E5E5',
+        flexDirection: 'row',
+    },
+    item: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        // borderRightWidth: 1,
+        // borderRightColor: '#000',
+        borderWidth: 1,
+        borderColor: '#999999',
+    }
+};
+
+export { BarraInferior };

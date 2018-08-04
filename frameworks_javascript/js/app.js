@@ -1,12 +1,25 @@
 var tablero;
+var coincidencias;
 
 $(document).ready(function() {
 
   // Obtiene la img para luego intarla en el tablero
   construirTablero()
   activarAnimacionTitulo()
-  $( ".img_tablero" ).draggable();
-  // revisarCombinacionVertical()
+  $(".img_tablero").click( function () {
+  	 parpadear(this)
+  });
+  $(".img_tablero").draggable({
+  	opacity: 0.7 ,
+  	axis: "y",
+  	cursor: "pointer",
+  	refreshPositions: true,
+  	// grid: [ 50, 20 ],
+  	zIndex: 100,
+  	containment: ".panel-tablero",
+  })
+
+  revisarCombinacionVertical()
   revisarCombinacionHorizontal()
 
 });
@@ -18,8 +31,8 @@ function construirTablero() {
     let horizontal = new Array(6)
     for (let h = 0; h < 7; h++) {
 
-      horizontal[h] = obtenerImagen()
-      $(".col-" + (h + 1)).append(" <img class='img_tablero' src='image/" + horizontal[h] + "' title='' style=' width: 80%' >")
+      horizontal[h] = " <img class='img_tablero' src='image/" + obtenerImagen() + "' title='' style=' width: 80%' >"
+      $(".col-" + (h + 1)).append(horizontal[h])
     }
     vertical[v] = horizontal
   }
@@ -66,7 +79,8 @@ function revisarCombinacionVertical() {
 			} else if (imgAUx == tablero[f][c]){
 				coincidencia++
 				if (coincidencia > 2) {
-					console.log(c + ' C <> F ' + f + ' - ' + tablero[f][c])
+					console.log('Vertical ' + c + ' C <> F ' + f + ' - ' + tablero[f][c])
+					coincidencias
 				} 
 			} else {
 				coincidencia = 1
@@ -74,6 +88,7 @@ function revisarCombinacionVertical() {
 			}
 		}
 	}
+
 }
 
 function revisarCombinacionHorizontal() {
@@ -87,7 +102,7 @@ function revisarCombinacionHorizontal() {
 			} else if (imgAUx == tablero[f][c]) {
 				coincidencia++
 				if (coincidencia > 2) {
-					console.log(f + ' F <> C ' + c + ' - ' + tablero[f][c])
+					console.log('Horizontal ' + f + ' F <> C ' + c + ' - ' + tablero[f][c])
 				} 
 			} else {
 				coincidencia = 1
@@ -95,4 +110,22 @@ function revisarCombinacionHorizontal() {
 			}
 		}
 	}
+}
+
+function coindecidencia () {
+
+}
+
+function parpadear(obj) {
+	
+	console.log(obj)
+
+	$(obj).next().fadeToggle('fast')
+	$(obj).next().fadeToggle('fast')
+	$(obj).next().fadeToggle('fast')
+	$(obj).next().fadeToggle('fast')
+	$(obj).next().fadeToggle('fast')
+	setTimeout(function(){
+		$(obj).next().remove()
+	}, 1000)
 }

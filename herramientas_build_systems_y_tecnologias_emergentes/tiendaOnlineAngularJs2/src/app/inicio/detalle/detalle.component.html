@@ -1,0 +1,30 @@
+<section class="body">
+  <div class="row ">
+    <ang2-menu [cantidadProductosCarrito] = "datoProductosCarrito.length" class="column no-padding"></ang2-menu>
+  </div>
+  <div class=" row ">
+    <div class="catalogo">
+      <div class="row small-12 linea-bottom">
+        <div class="column">
+          <h4>{{producto.nombre}}</h4>
+        </div>
+      </div>
+      <div class="row small-12 margin-top-1">
+        <div class="small-6 column">
+          <div class="text-center">
+            <img class="thumbnail" src="../../assets/img/productos/{{producto.imagen}}">
+          </div>
+        </div>
+        <div class="small-6 column">
+          <div class="card-section">
+            <h5><strong>Precio</strong>: $ {{producto.valor|number}}</h5>
+            <p><strong>Unidades disponibles</strong>: {{producto.cantidad}}</p>
+          </div>
+        </div>
+      </div>
+      <div class=" row small-12 margin-top-1">
+        <a class="small-1 button primary" routerLink="/catalogo">Atras</a>
+      </div>
+    </div>
+  </div>
+</section>

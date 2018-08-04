@@ -1,0 +1,19 @@
+<section class="body">
+  <div class="container">
+    <section class="row form_login">
+      <form class="small-offset-3 small-6 form" (ngSubmit)="enviarFormulario(f)" #f="ngForm">
+        <strong>Correo Electrónico</strong>
+        <input type="email" value="" required ngModel name="correo" />
+        <strong>Contraseña</strong>
+        <input type="password" value="" required ngModel name="contrasenia" />
+        <div class="row column small-12 {{show}} padding-bottom-1 " id="error_login">
+          <span class="label alert"><i class="fa fa-close"></i> Correo electrónico y/o la contraseña no son validos</span>
+        </div>
+
+        <div class="text-right">
+          <button type="submit" class="button success"><strong>Ingresar</strong></button>
+        </div>
+      </form>
+    </section>
+  </div>
+</section>
