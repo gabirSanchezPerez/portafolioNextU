@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  View
-} from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 // import { createStore } from 'redux';
-import Futbol from './src/components/app/Futbol';
-import Inicio from './src/components/app/Inicio';
-import Formulario from './src/components/app/Formulario';
-import { Encabezado, Spinner } from './src/components/lib'; 
+import { store } from './reducers/reducer';
+// import Inicio from './components/app/Inicio';
+import Router from './Router';
+import Formulario from './components/app/Formulario';
+import { Encabezado, Spinner } from './components/lib'; 
 import firebase from 'firebase';
 
 export default class App extends Component<{}> {
@@ -51,14 +48,16 @@ export default class App extends Component<{}> {
     });
   }
 
+          // <Provider store={store} >
+          // </Provider>
   contenidoSegunSesion(){
+
     switch (this.state.sesionIniciada) {
       case true:
         return (
-          <View>
-            <Futbol />
-          </View>
+          <Router />
         );
+        break;
 
       case false:
         return (
@@ -67,11 +66,12 @@ export default class App extends Component<{}> {
             <Formulario />
           </View>
         );
+        break;
 
       default:
         return (
           <View style={{height: '100%', paddingTop:20}} >
-            <Spinner size={100} />
+            <Spinner size={100} message="Iniciando conexión" />
           </View>
         );
         break;
