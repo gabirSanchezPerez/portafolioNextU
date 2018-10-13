@@ -11,7 +11,7 @@ import { createStore } from 'redux';
 // Quito los datos
 const initialState = {
   deportes: [
-  /*{
+  {
     "id": 1,
     "equipo1": "Nacional",
     "equipo2": "Junior",
@@ -142,7 +142,7 @@ const initialState = {
     "tipo": "Baloncesto",
     "bandera": "https://cdn.icon-icons.com/icons2/238/PNG/256/Venezuela_26406.png",
     "fecha": "2018-06-12"
-  },*/
+  },
   ]
 }
 

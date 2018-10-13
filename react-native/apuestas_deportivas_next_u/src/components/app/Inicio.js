@@ -8,7 +8,7 @@ class Inicio extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Encabezado tituloEncabezado={"Resultados App"} tituloLeft={"CerrarSesion"} />
+        <Text>solo diseño</Text>
         <Menu />
         <BarraInferior />
       </View>
@@ -19,10 +19,9 @@ class Inicio extends Component {
 
 const styles = {
   container: {
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#FFF',
-    height: '100%'
   },
 };
 

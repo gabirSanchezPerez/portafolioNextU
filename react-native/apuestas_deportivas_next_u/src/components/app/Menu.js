@@ -23,7 +23,7 @@ class Menu extends Component {
 
                 <TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => Actions.Apostar()}>
+                    onPress={() => Actions.Apuesta()}>
                     <Icon name="money" size={50} color="#4E884F" />
                     <Text style={styles.txtBtnMenu}>Apostar</Text>
                 </TouchableOpacity>

@@ -22,10 +22,9 @@ class Perfil extends Component {
 
 const styles = {
   container: {
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#FFF',
-    height: '100%'
   },
 };
 

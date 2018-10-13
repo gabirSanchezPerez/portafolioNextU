@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { View, ListView, Alert, Text } from 'react-native';
+import { View, ListView, Alert, Text, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 import { BarraInferior } from '../lib';
 
 import Linea from './LineaDB'
 
-import { connect } from 'react-redux';
-import { watchDeporteData } from './../../reducers/reducer';
+// import { connect } from 'react-redux';
+// import { watchDeporteData } from './../../reducers/reducer';
 
 let cont = 0;
 let paisAUx = "";
@@ -17,17 +17,19 @@ class ListaDB extends Component {
   constructor(props) {
     super(props);
     cont = 0;
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: null
-    }
+      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
+    };
+
   }
 
   componentWillMount() {
   
-    const ds = new ListView.DataSource({
-        rowHasChanged: (r1, r2) => r1 !== r2
-    });
-    this.dataSource = ds.cloneWithRows(this.props.deportes);
+    // const ds = new ListView.DataSource({
+        // rowHasChanged: (r1, r2) => r1 !== r2
+    // });
+    // this.dataSource = ds.cloneWithRows(this.props.deportes);
   
   }
 
@@ -111,29 +113,14 @@ const styles = {
     fontWeight: '700',
   },
   container: {
-    backgroundColor: '#EEE',
+    backgroundColor: '#E1E11E',
     margin: 10,
   },
   container2: {
-    backgroundColor: '#DDD',
+    backgroundColor: '#D00aDa',
     marginLeft: 10,
     marginRight: 10,
   },
 };
 
-const mapStateToProps = state => ({ 
-  deportes: state.deportes 
-});
-
-// const mapDispatchToProps = (dispatch) => {
-//  return { };
-// }
-
-const mapDispatchToProps = (dispatch) => {
-  return { 
-    watchDeporteData: () => { dispatch(watchDeporteData()) }
-  };
-}
-
-//export default ListaDB;
-export default connect(mapStateToProps, mapDispatchToProps)(ListaDB);
+export default ListaDB;

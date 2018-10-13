@@ -13,7 +13,6 @@ class Futbol extends Component {
           tituloEncabezado={"Resultados App F"} 
           tituloLeft={"CerrarSesion"} />
         <ListaDB />
-        <BarraInferior />
       </View>
     );
   }
@@ -22,10 +21,9 @@ class Futbol extends Component {
 
 const styles = {
   container: {
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#FFF',
-    height: '100%'
   },
 };
 

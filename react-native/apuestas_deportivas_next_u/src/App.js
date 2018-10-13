@@ -4,10 +4,11 @@ import { Platform, StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
 // import { createStore } from 'redux';
 import { store } from './reducers/reducer';
-// import Inicio from './components/app/Inicio';
-import Router from './Router';
+import Inicio from './components/app/Inicio';
+import RouterComponent from './RouterComponent';
 import Formulario from './components/app/Formulario';
 import { Encabezado, Spinner } from './components/lib'; 
+
 import firebase from 'firebase';
 
 export default class App extends Component<{}> {
@@ -22,7 +23,7 @@ export default class App extends Component<{}> {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         {this.contenidoSegunSesion()}
       </View>
     );
@@ -48,14 +49,16 @@ export default class App extends Component<{}> {
     });
   }
 
-          // <Provider store={store} >
-          // </Provider>
+          // 
+          // 
   contenidoSegunSesion(){
 
     switch (this.state.sesionIniciada) {
       case true:
         return (
-          <Router />
+          <Provider store={store} >
+            <RouterComponent />
+          </Provider>
         );
         break;
 
@@ -71,7 +74,7 @@ export default class App extends Component<{}> {
       default:
         return (
           <View style={{height: '100%', paddingTop:20}} >
-            <Spinner size={100} message="Iniciando conexión" />
+            <Spinner size={100} message="Actualizando información" />
           </View>
         );
         break;
@@ -79,3 +82,11 @@ export default class App extends Component<{}> {
   }
 
 }
+
+const styles = {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+};
