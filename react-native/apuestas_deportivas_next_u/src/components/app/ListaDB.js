@@ -40,7 +40,6 @@ class ListaDB extends Component {
           dataSource={this.state.dataSource}
           renderRow={this.renderLinea.bind(this)}
           enableEmptySections={true} />
-        <BarraInferior />
 			</View>
 		);
 	}
@@ -113,11 +112,11 @@ const styles = {
     fontWeight: '700',
   },
   container: {
-    backgroundColor: '#E1E11E',
-    margin: 10,
+    backgroundColor: '#E1E',
+    margin: 5,
   },
   container2: {
-    backgroundColor: '#D00aDa',
+    backgroundColor: '#0Da',
     marginLeft: 10,
     marginRight: 10,
   },

@@ -33,8 +33,6 @@ const styles = {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        // borderRightWidth: 1,
-        // borderRightColor: '#000',
         borderWidth: 1,
         borderColor: '#999999',
     }

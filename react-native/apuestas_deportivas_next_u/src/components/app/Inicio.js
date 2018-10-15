@@ -8,9 +8,7 @@ class Inicio extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>solo diseño</Text>
         <Menu />
-        <BarraInferior />
       </View>
     );
   }
@@ -21,7 +19,7 @@ const styles = {
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 };
 

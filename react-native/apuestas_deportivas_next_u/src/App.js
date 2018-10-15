@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import { View } from 'react-native';
+
 import { Provider } from 'react-redux';
-// import { createStore } from 'redux';
-import { store } from './reducers/reducer';
-import Inicio from './components/app/Inicio';
+import { createStore } from 'redux';
+import reducer from './reducers';
 import RouterComponent from './RouterComponent';
 import Formulario from './components/app/Formulario';
-import { Encabezado, Spinner } from './components/lib'; 
+import { Spinner, BarraInferior } from './components/lib'; 
 
 import firebase from 'firebase';
 
@@ -49,25 +48,28 @@ export default class App extends Component<{}> {
     });
   }
 
-          // 
-          // 
+  //Cerrar sesión
+  cerrarSesion() {
+    firebase.auth().signOut();
+  }
+
   contenidoSegunSesion(){
 
     switch (this.state.sesionIniciada) {
       case true:
         return (
-          <Provider store={store} >
-            <RouterComponent />
+          <Provider store={createStore(reducers)} >
+            <View style={{ flex: 1 }} >
+              <RouterComponent cerrarSesion={this.cerrarSesion.bind(this)} />
+              <BarraInferior />
+            </View>   
           </Provider>
         );
         break;
 
       case false:
         return (
-          <View>
-            <Encabezado tituloEncabezado={'Login App'} />
-            <Formulario />
-          </View>
+          <Formulario />
         );
         break;
 
@@ -86,7 +88,7 @@ export default class App extends Component<{}> {
 const styles = {
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     backgroundColor: '#f5f5f5',
   },
 };

@@ -9,9 +9,6 @@ class Futbol extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Encabezado 
-          tituloEncabezado={"Resultados App F"} 
-          tituloLeft={"CerrarSesion"} />
         <ListaDB />
       </View>
     );

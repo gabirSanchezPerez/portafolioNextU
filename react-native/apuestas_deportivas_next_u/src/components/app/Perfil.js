@@ -9,11 +9,7 @@ class Perfil extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Encabezado 
-          tituloEncabezado={"Resultados App P"} 
-          tituloLeft={"CerrarSesion"} />
         <ListaDB />
-        <BarraInferior />
       </View>
     );
   }

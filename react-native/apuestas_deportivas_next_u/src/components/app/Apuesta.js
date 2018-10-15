@@ -9,11 +9,7 @@ class Apuesta extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Encabezado 
-          tituloEncabezado={"Resultados App A"} 
-          tituloLeft={"CerrarSesion"} />
         <ListaDB />
-        <BarraInferior />
       </View>
     );
   }

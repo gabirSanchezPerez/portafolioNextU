@@ -76,7 +76,7 @@ export default class App extends Component {
       //    Mosrtar estado de carga (Spinner)
       //=========================================================================
         return (
-          <View style={{ flex: 1 }}>
+          <View >
             <View style={imageContainer}>
               <Image
                 style={backgroundImage}
