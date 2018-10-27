@@ -4,19 +4,19 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux'; 
 
 const BarraInferior = (props) => {
-    const { contenedor, item } = styles;
+    const { contenedor, item, activo } = styles;
     return (
         <View style={contenedor}>
-            <TouchableOpacity style={item} onPress={() => Actions.Inicio()}>
+            <TouchableOpacity style={ props.tabActive == 1 ? activo : item } onPress={() => Actions.Inicio()}>
                 <Icon name="home" size={30} color="#000" />
             </TouchableOpacity>
-            <TouchableOpacity style={item} onPress={() => Actions.Futbol()}>
+            <TouchableOpacity style={ props.tabActive == 2 ? activo : item } onPress={() => Actions.Futbol()}>
                 <Icon name="futbol-o" size={30} color="#000" />
             </TouchableOpacity>
-            <TouchableOpacity style={item} onPress={() => Actions.Baloncesto()}>
+            <TouchableOpacity style={ props.tabActive == 3 ? activo : item } onPress={() => Actions.Baloncesto()}>
                 <Icon name="dribbble" size={30} color="#000" />
             </TouchableOpacity>
-            <TouchableOpacity style={item} onPress={() => Actions.Apuesta()}>
+            <TouchableOpacity style={ props.tabActive == 4 ? activo : item } onPress={() => Actions.Apuesta()}>
                 <Icon name="money" size={30} color="#000" />
             </TouchableOpacity>
         </View>
@@ -25,6 +25,8 @@ const BarraInferior = (props) => {
 
 const styles = {
     contenedor: {
+        // flex: 1,
+        flexWrap: 'wrap',
         height: 50,
         backgroundColor: '#E5E5E5',
         flexDirection: 'row',
@@ -35,6 +37,14 @@ const styles = {
         justifyContent: 'center',
         borderWidth: 1,
         borderColor: '#999999',
+    },
+    activo: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: '#D9AB06',
+        backgroundColor: '#eece54',
     }
 };
 

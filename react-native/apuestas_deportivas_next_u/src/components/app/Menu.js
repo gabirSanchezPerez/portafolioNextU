@@ -7,33 +7,33 @@ class Menu extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-                <TouchableOpacity 
+        <TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => Actions.Futbol()}>
-                    <Icon name="futbol-o" size={50} color="#293229" />
-                    <Text style={styles.txtBtnMenu}>Fútbol</Text>
-                </TouchableOpacity>
+          onPress={() => Actions.Futbol()}>
+            <Icon name="futbol-o" size={50} color="#293229" />
+            <Text style={styles.txtBtnMenu}>Fútbol</Text>
+        </TouchableOpacity>
 
-                <TouchableOpacity 
+        <TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => Actions.Baloncesto()}>
-                    <Icon name="dribbble" size={50} color="#FF2200" />
-                    <Text style={styles.txtBtnMenu}>Baloncesto</Text>
-                </TouchableOpacity>
+          onPress={() => Actions.Baloncesto()}>
+            <Icon name="dribbble" size={50} color="#FF2200" />
+            <Text style={styles.txtBtnMenu}>Baloncesto</Text>
+        </TouchableOpacity>
 
-                <TouchableOpacity 
+        <TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => Actions.Apuesta()}>
-                    <Icon name="money" size={50} color="#4E884F" />
-                    <Text style={styles.txtBtnMenu}>Apostar</Text>
-                </TouchableOpacity>
+          onPress={() => Actions.Apuesta()}>
+            <Icon name="money" size={50} color="#4E884F" />
+            <Text style={styles.txtBtnMenu}>Apostar</Text>
+        </TouchableOpacity>
 
 				<TouchableOpacity 
 					style={styles.btnMenu}
-                    onPress={() => Actions.Perfil()}>
-                    <Icon name="user" size={50} color="#29A1D5" />
-                    <Text style={styles.txtBtnMenu}>Perfil</Text>
-                </TouchableOpacity>
+          onPress={() => Actions.Perfil()}>
+            <Icon name="user" size={50} color="#29A1D5" />
+            <Text style={styles.txtBtnMenu}>Perfil</Text>
+        </TouchableOpacity>
 			</View>
 		);
 	}
@@ -41,9 +41,12 @@ class Menu extends Component {
 
 const styles = {
   container: {
+    flex: 1,
   	flexDirection: 'row',
   	flexWrap: 'wrap',
+    alignItems: 'center',
   	justifyContent: 'space-around',
+    top: '25%',
   },
   btnMenu: {
     width: '35%',
@@ -51,13 +54,10 @@ const styles = {
     marginTop: 10,
     marginBottom: 10,
     borderRadius: 2,
-    borderWidth: 2,
-    borderColor: '#545454',
+    borderWidth: 1,
+    borderColor: '#262626',
     padding: 10,
     justifyContent: 'center',
-    shadowColor: '#F00',
-	shadowOffset: { width: 0, height: 10 },
-	shadowOpacity: 0.5,
   },
   txtBtnMenu: {
     color: '#333',

@@ -1,20 +1,25 @@
 import React from 'react';
 import { Text, View, TextInput } from 'react-native';
 
-const Input = ({ texto, value, onChangeText, placeholder, secureTextEntry }) => {
+const Input = ({ texto, value, onChangeText, placeholder, secureTextEntry, autoCorrect, addEtiquetaStyle, addInputStyle, editable }) => {
     const { viewStyle, etiquetaStyle, inputStyle } = styles;
     return (
         <View style={viewStyle}>
-            <Text style={etiquetaStyle}>
-                {texto}
-            </Text>
-            <TextInput
-                placeholder={placeholder}
-                style={inputStyle}
-                value={value}
-                onChangeText={onChangeText}
-                secureTextEntry={secureTextEntry}
-            />
+            <View style={{ flexDirection: 'row' }}>
+                <Text style={[etiquetaStyle, addEtiquetaStyle]}>{texto}:</Text>
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+                <TextInput
+                    placeholder={placeholder}
+                    style={[inputStyle, addInputStyle]}
+                    value={value}
+                    onChangeText={onChangeText}
+                    secureTextEntry={secureTextEntry}
+                    autoCorrect={autoCorrect}
+                    autoCapitalize={'none'}
+                    editable={editable === true ? false : true}
+                />
+            </View>
         </View>
     );
 };
@@ -22,24 +27,24 @@ const Input = ({ texto, value, onChangeText, placeholder, secureTextEntry }) => 
 const styles = {
     viewStyle: {
         flex: 1,
-        height: 40,
-        flexDirection: 'row',
+        padding: 10,
+        //height: 40,
+        //flexDirection: 'row',
         alignItems: 'center'
     },
     etiquetaStyle: {
-        fontSize: 19,
-        paddingLeft: 15,
+        fontSize: 15,
+        paddingLeft: 5,
         flex: 1
     },
     inputStyle: {
-        color: '#000',
-        width: 100,
+        color: '#3b4167',
         height: 40,
-        paddingLeft: 5,
-        paddingRight: 5,
+        paddingLeft: 10,
+        paddingRight: 10,
         fontSize: 19,
         lineHeight: 24,
-        flex: 2
+        flex: 1,
     }
 };
 

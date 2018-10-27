@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, LayoutAnimation } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import { CardSection } from '../lib';
+
 class LineaDB extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillUpdate() {
+    LayoutAnimation.spring();
+  }
+
 	render() {
 		return (
-			<View style={styles.container}>
-               
+			<View >
+        <CardSection style={styles.container}>
+          <Text style={styles.styleLocal}>{this.props.infoLista.equipo1}</Text>
+          {this.props.infoLista.finalizado == 1 ? (
+            <Text style={styles.score}>{this.props.infoLista.rta1} - {this.props.infoLista.rta2}</Text>
+          ):(
+            <Text style={styles.score}>VS</Text>
+          )}
+          <Text style={styles.styleVisitante}>{this.props.infoLista.equipo2}</Text>
+        </CardSection> 
 			</View>
 		);
 	}
@@ -18,25 +37,25 @@ const styles = {
   	flexWrap: 'wrap',
   	justifyContent: 'space-around',
   },
-  btnMenu: {
-    width: '35%',
-  	alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 10,
-    borderRadius: 2,
-    borderWidth: 2,
-    borderColor: '#545454',
-    padding: 10,
-    justifyContent: 'center',
-    shadowColor: '#F00',
-	shadowOffset: { width: 0, height: 10 },
-	shadowOpacity: 0.5,
+  styleLocal: {
+    textAlign: 'left',
+    fontFamily: 'Orkney',
+    flex: 1,
+    marginTop: 7,
+    marginLeft: 10,
   },
-  txtBtnMenu: {
-    color: '#333',
-    fontSize: 20,
+  score: {
     textAlign: 'center',
-    fontWeight: '700',
+    fontFamily: 'Orkney',
+    width: 73, 
+    marginTop: 7,
+  },
+  styleVisitante: {
+    textAlign: 'right',
+    fontFamily: 'Orkney',
+    flex: 1,
+    marginTop: 7,
+    marginRight: 10,
   },
 };
 

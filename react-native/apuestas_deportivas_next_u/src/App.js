@@ -15,7 +15,7 @@ export default class App extends Component<{}> {
   constructor(props) {
     super(props);
     this.state = {
-      sesionIniciada: null
+      sesionIniciada: null,
     }
 
   }
@@ -58,10 +58,9 @@ export default class App extends Component<{}> {
     switch (this.state.sesionIniciada) {
       case true:
         return (
-          <Provider store={createStore(reducers)} >
+          <Provider store={createStore(reducer)} >
             <View style={{ flex: 1 }} >
               <RouterComponent cerrarSesion={this.cerrarSesion.bind(this)} />
-              <BarraInferior />
             </View>   
           </Provider>
         );
@@ -88,6 +87,7 @@ export default class App extends Component<{}> {
 const styles = {
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'space-between',
     backgroundColor: '#f5f5f5',
   },

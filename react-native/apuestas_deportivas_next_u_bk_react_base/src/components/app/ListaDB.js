@@ -17,19 +17,17 @@ class ListaDB extends Component {
   constructor(props) {
     super(props);
     cont = 0;
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
-    };
-
+      dataSource: null
+    }
   }
 
   componentWillMount() {
   
-    // const ds = new ListView.DataSource({
-        // rowHasChanged: (r1, r2) => r1 !== r2
-    // });
-    // this.dataSource = ds.cloneWithRows(this.props.deportes);
+    const ds = new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2
+    });
+    this.dataSource = ds.cloneWithRows(this.props.deportes);
   
   }
 

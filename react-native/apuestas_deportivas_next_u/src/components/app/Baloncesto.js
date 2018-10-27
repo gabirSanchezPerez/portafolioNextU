@@ -6,10 +6,17 @@ import ListaDB from './ListaDB';
 
 class Baloncesto extends Component {
   
+  constructor(props) {
+    super(props);
+    this.state = { 
+      
+    }
+
+  }
   render() {
     return (
       <View style={styles.container}>
-        <ListaDB />
+        <ListaDB deporte={'Baloncesto'}  tabActive={3} />
       </View>
     );
   }
@@ -18,9 +25,9 @@ class Baloncesto extends Component {
 
 const styles = {
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
+    // flex: 1,
+    // flexDirection: 'column',
+    // justifyContent: 'space-between',
   },
 };
 
