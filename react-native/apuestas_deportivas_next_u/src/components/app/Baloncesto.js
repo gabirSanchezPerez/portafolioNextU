@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { BarraInferior, Encabezado } from '../lib';
 
-import ListaDB from './ListaDB';
+import Lista from './Lista';
 
 class Baloncesto extends Component {
   
@@ -16,7 +16,7 @@ class Baloncesto extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ListaDB deporte={'Baloncesto'}  tabActive={3} />
+        <Lista deporte={'Baloncesto'}  tabActive={3} />
       </View>
     );
   }

@@ -28,8 +28,6 @@ const styles = {
     viewStyle: {
         flex: 1,
         padding: 10,
-        //height: 40,
-        //flexDirection: 'row',
         alignItems: 'center'
     },
     etiquetaStyle: {

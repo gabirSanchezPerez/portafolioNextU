@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { BarraInferior } from '../lib';
 
-import ListaDB from './ListaDB';
+import Lista from './Lista';
 
 class Apuesta extends Component {
   
@@ -16,7 +16,7 @@ class Apuesta extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ListaDB deporte={"TODOS"} tabActive={4}  />
+        <Lista deporte={"TODOS"} tabActive={4}  />
       </View>
     );
   }
@@ -25,12 +25,12 @@ class Apuesta extends Component {
 
 const styles = {
   container: {
-    //flex: 1,
+    flex: 1,
     // flexDirection: 'column',
     // flexWrap: 'wrap',
     // justifyContent: 'center',
     // backgroundColor: '#0fff0a',
-    // alignItems: 'center'
+    // alignItems: 'stretch'
   },
 };
 

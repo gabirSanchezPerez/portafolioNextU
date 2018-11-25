@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { BarraInferior } from '../lib';
 
-import ListaDB from './ListaDB';
+import Lista from './Lista';
 
 class Futbol extends Component {
 
@@ -17,7 +17,7 @@ class Futbol extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ListaDB deporte={'Futbol'} tabActive={2} />
+        <Lista deporte={'Futbol'} tabActive={2} />
       </View>
     );
   }

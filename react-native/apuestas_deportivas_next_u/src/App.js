@@ -30,14 +30,18 @@ export default class App extends Component<{}> {
 
   componentWillMount() {
     
-    firebase.initializeApp({
+    var config = {
       apiKey: 'AIzaSyCDB5XOgOQskv-zs-YzGC_3g9vUtZsWPDc',
       authDomain: 'apuestas-deportivas-next-u.firebaseapp.com',
       databaseURL: 'https://apuestas-deportivas-next-u.firebaseio.com',
       projectId: 'apuestas-deportivas-next-u',
       storageBucket: 'apuestas-deportivas-next-u.appspot.com',
       messagingSenderId: '771392140910'
-    });
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
 
     firebase.auth().onAuthStateChanged(user => {
       if(user){

@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
 import firebase from 'firebase';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { connect } from 'react-redux';
-import { Card, CardSection, Boton, Spinner, BarraInferior } from '../lib';
-
+import { BarraInferior } from '../lib';
 
 class Perfil extends Component {
   
@@ -12,15 +9,12 @@ class Perfil extends Component {
     super(props);
     this.state = { 
       email: '',
-      totalApuestas: 0,
     }
   }
 
    componentWillMount() {
     //Reiniciar los estados de las variables
-    this.setState({ totalApuestas: 0, cargando: false, error: '', actualizado: false });
     this.state.email = firebase.auth().currentUser.email;
-    //this.contarApuestas();
   }
 
   render() {
@@ -28,9 +22,6 @@ class Perfil extends Component {
       <View style={styles.container}>
         <ScrollView>
           <View style={styles.header}>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={styles.error}>{this.state.error}</Text>
-            </View>
             <View style={styles.pictureHolder}>
               <View style={styles.picture}>
                 <Image 
@@ -44,7 +35,7 @@ class Perfil extends Component {
             <Text style={styles.textInformacioj}> {this.state.email} </Text> 
           </View>
         </ScrollView>
-        <BarraInferior tabActive={4} />
+        <BarraInferior tabActive={0} />
       </View>
     );
   }
@@ -61,7 +52,8 @@ const styles = {
    },
    header: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop:10
    },
     pictureHolder: {
       flexDirection: 'row'

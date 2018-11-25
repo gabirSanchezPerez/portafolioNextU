@@ -27,12 +27,14 @@ const RouterComponent = (props) => {
                 fontSize: 15, 
                 lineHeight: 22, 
                 color: '#eece54' 
-            }} >
+            }}
+            leftButtonStyle={{display: 'none', backgroundColor: '#00ff00'}}
+            >
             <Scene key="root">
                 <Scene key="Inicio" component={Inicio} title="Inicio" 
                     init
+                    initial={true}
                     rightTitle="Cerrar Sesión"
-                    wrapRouter={true}
                     onRight={() => props.cerrarSesion()} />
                 <Scene key="Futbol" component={Futbol} title="Fútbol" 
                     init
@@ -40,7 +42,6 @@ const RouterComponent = (props) => {
                     onRight={() => props.cerrarSesion()}  />
                 <Scene key="Apuesta" component={Apuesta} title="Apuesta" 
                     init
-                    initial={true}
                     rightTitle="Cerrar Sesión"
                     onRight={() => props.cerrarSesion()} />
                 <Scene key="Baloncesto" component={Baloncesto} title="Baloncesto" 
