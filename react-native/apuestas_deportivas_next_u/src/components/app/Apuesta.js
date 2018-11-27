@@ -8,9 +8,7 @@ class Apuesta extends Component {
   
   constructor(props) {
     super(props);
-    this.state = { 
-      
-    }
+
   }
 
   render() {
@@ -26,11 +24,6 @@ class Apuesta extends Component {
 const styles = {
   container: {
     flex: 1,
-    // flexDirection: 'column',
-    // flexWrap: 'wrap',
-    // justifyContent: 'center',
-    // backgroundColor: '#0fff0a',
-    // alignItems: 'stretch'
   },
 };
 

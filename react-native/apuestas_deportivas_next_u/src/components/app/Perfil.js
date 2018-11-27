@@ -91,15 +91,7 @@ const styles = {
       fontSize: 20,
       marginLeft: 10
     },
-    error: {
-      marginTop: 5,
-      marginBottom: 5,
-      padding: 3,
-      color: 'white',
-      justifyContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-    },
+
 };
 
 export default Perfil;

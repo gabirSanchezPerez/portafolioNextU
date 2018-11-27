@@ -6,9 +6,6 @@ import { BarraInferior, Spinner } from '../lib';
 
 import Linea from './Linea'
 
-// import { connect } from 'react-redux';
-// import { watchDeporteData } from './../../reducers/reducer';
-
 let cont = 0;
 let paisAUx = "";
 let ds = new ListView.DataSource({
@@ -37,13 +34,13 @@ class ListaDB extends Component {
 	render() {
 		return (
       <View>
-        {this.contenidoApp()}
+        {this.contenidoLista()}
       </View>
 
 		);
 	}
 
-  contenidoApp(){
+  contenidoLista(){
     cont = 0;
     switch (this.state.resultadosSeccion) {
       case true:
@@ -111,26 +108,6 @@ class ListaDB extends Component {
     } 
   }
 
-  //================================
-  //    Consultar la base de datos y obtener los resultados de fútbol
-  //================================
-
-DataFire(data) {
-  // FIREBASE APUESTAS
-  firebase.database().ref('Apuestas/' + uid).on('value', (apuestas) => {
-    //Obtener la información a través de firebase.
-    apuestas.forEach((deporte) => {
-
-      //Recore los item nivel 1.
-      deporte.forEach((item) => {
-        data(item.val());
-      });
-    });
-
-  });
-
-}
-
   obtenerItems() {
  
     const uid = firebase.auth().currentUser.uid;
@@ -144,7 +121,6 @@ DataFire(data) {
        
        //Recore los item nivel 1.
         if ( (this.props.deporte === item.val().tipo && item.val().finalizado == 1) || (this.props.deporte === "TODOS" && item.val().finalizado == 0) ) {
-          item.val().rta2 = 2340;
           datosDeporte.push(item.val());
         }
       });
@@ -163,7 +139,7 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderColor: '#CCC',
+    borderColor: '#FFF',
     paddingBottom:5,
   },
   imageStyles: {
