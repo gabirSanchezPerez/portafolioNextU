@@ -1,0 +1,92 @@
+<script>
+
+if( typeof(Storage) !== "undefined" ) {
+
+	// CODIGO Servicio local
+	var ubicacion = window.location.href.split("index.php");
+	// console.log(ubicacion)
+	jQuery(".servicio_online").click(function(){
+		console.log(this)
+		localStorage.setItem("online_servicio", jQuery(this).attr("data-servicio"));
+		localStorage.setItem("online_incluye", jQuery(this).attr("data-incluye"));
+		localStorage.setItem("online_detalle", jQuery(this).attr("data-detalle"));
+		localStorage.setItem("online_valor", jQuery(this).attr("data-valor"));
+	
+		location.href=ubicacion[0]+"index.php/servicios-online"
+	})
+	// FIN CODIGO Servicio local
+
+	// -----------------   PROCESO 2 ---------------- //
+	if(jQuery("#servicio_online_formulario")){
+
+		jQuery("#f_btn_siguiente").click(function(){
+			
+			localStorage.setItem("online_nombre", jQuery("#f_nombre").val());
+			localStorage.setItem("online_comentario", jQuery("#f_comentario").val());
+			localStorage.setItem("online_tiempo", jQuery("#f_tiempo").val());
+			// localStorage.setItem("online_adjuntos", jQuery(this).attr("data-valor"));
+		
+			location.href=ubicacion[0]+"index.php/solicitar-servicio"
+		})
+
+		jQuery("#f_online_servicio").html(localStorage.getItem("online_servicio"))
+		jQuery("#f_online_incluye").html(localStorage.getItem("online_incluye"))
+		jQuery("#f_online_detalle").html(localStorage.getItem("online_detalle"))
+	}
+	// -----------------  PROCESO 2 ---------------- //
+
+
+	// -----------------   PROCESO FINAL ---------------- //
+
+	jQuery("#f_btn_solicitar").click(function(){
+		var validacionEmail = validarEmail(jQuery.trim(jQuery("#f_correo").val()));
+
+		if(jQuery.trim(jQuery("#f_telefono").val()) != "" && validacionEmail ) {
+
+			jQuery.ajax({
+               url: "https://www.abogadoslegalhelp.com/sitio/index.php",
+               type: "post",
+               data: {
+               	"solicitud_servicio": 1,
+                "servicio": localStorage.getItem("online_servicio"),
+                "valor": localStorage.getItem("online_valor"),
+                "nombre": localStorage.getItem("online_nombre"),
+                "comentario": localStorage.getItem("online_comentario"),
+                "tiempo": localStorage.getItem("online_tiempo"),
+                "telefono": jQuery("#f_telefono").val(),
+                "correo": jQuery("#f_correo").val()
+            },
+               // "registro_evento=1&nombre="+jQuery("#nombre_b").val()+"&correo="+jQuery("#correo_b").val()+"&celular="+jQuery("#celular_b").val(),
+               success: function(data){
+                    console.log(data)
+                    alert("Solicitud enviada satisfactoriamente")
+
+                    location.href=ubicacion[0]+"index.php/solicitud-enviada";
+               }, error: function (err) {
+
+               		console.log(err)
+                    // location.href=ubicacion[0]+"index.php/solicitud-enviada";
+               }
+
+            });
+		
+		} else {
+			alert("Los campos son obligatorios")
+		}
+			
+	})
+
+	// -----------------  PROCESO FINAL ---------------- //
+
+} else {
+	console.log("error local")
+}
+
+function validarEmail(email) {
+    if (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(email)){
+        return true;
+    } else {
+        return false;
+    }
+}
+</script>

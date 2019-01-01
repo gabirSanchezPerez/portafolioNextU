@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Cartelera
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-refresher (ionRefresh)="getPeliculas($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-fab bottom right>
+    <button ion-fab icon-only (click)="dialogoAdd()">
+      <ion-icon name="chatboxes"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-list>
+    <ion-item-sliding *ngFor="let pelicula of peliculas">
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="pelicula.imagen">
+        </ion-avatar>
+          <h2>{{pelicula.titulo}}</h2>
+          <h3>{{pelicula.categoria}}</h3>
+          <p>
+            <ion-icon name="star" ></ion-icon>
+          </p>
+          <ion-icon item-right name="heart"  color="danger" *ngIf=pelicula.favorito></ion-icon>
+      </ion-item>
+      <ion-item-options side="right">
+
+        <button ion-button icon-only color="danger" (click)="favorita(pelicula, true)" *ngIf=!pelicula.favorito>
+          <ion-icon name="heart"></ion-icon>
+        </button>
+        
+        <button ion-button icon-only color="dark" (click)="favorita(pelicula, false)" *ngIf=pelicula.favorito>
+          <ion-icon name="thumbs-down"></ion-icon>
+        </button>
+        
+        <button ion-button icon-only color="primary" (click)="deletePelicula(pelicula)">
+          <ion-icon name="chatboxes"></ion-icon>
+        </button>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
