@@ -12,7 +12,7 @@
   </ion-refresher>
 
   <ion-fab bottom right>
-    <button ion-fab icon-only (click)="dialogoAdd()">
+    <button ion-fab icon-only (click)="irAComentarios()">
       <ion-icon name="chatboxes"></ion-icon>
     </button>
   </ion-fab>
@@ -25,7 +25,11 @@
           <h2>{{pelicula.titulo}}</h2>
           <h3>{{pelicula.categoria}}</h3>
           <p>
-            <ion-icon name="star" ></ion-icon>
+            <ion-icon name="star" *ngIf="pelicula.estrellas > 0"></ion-icon>
+            <ion-icon name="star" *ngIf="pelicula.estrellas > 1"></ion-icon>
+            <ion-icon name="star" *ngIf="pelicula.estrellas > 2"></ion-icon>
+            <ion-icon name="star" *ngIf="pelicula.estrellas > 3"></ion-icon>
+            <ion-icon name="star" *ngIf="pelicula.estrellas > 4"></ion-icon>
           </p>
           <ion-icon item-right name="heart"  color="danger" *ngIf=pelicula.favorito></ion-icon>
       </ion-item>
@@ -39,7 +43,7 @@
           <ion-icon name="thumbs-down"></ion-icon>
         </button>
         
-        <button ion-button icon-only color="primary" (click)="deletePelicula(pelicula)">
+        <button ion-button icon-only color="primary" (click)="addComentario(pelicula)">
           <ion-icon name="chatboxes"></ion-icon>
         </button>
 

@@ -33,6 +33,15 @@ export class LoginPage {
 	  	this.headers.append("X-Parse-Master-Key", "masterKey");
 	  	this.headers.append("X-Parse-Application-Id", "Lista1");
       this.localStorage = new Storage(null);
+      this.localStorage
+        .get("usuarioId")
+        .then((valor) => {
+          // console.log(valor);
+          if(valor !== ""){
+
+           this.navCtrl.setRoot(HomePage);
+          }
+        });
   }
 
   login() {

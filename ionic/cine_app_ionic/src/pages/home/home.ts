@@ -4,6 +4,9 @@ import { NavController,  AlertController,
         ToastController } from 'ionic-angular';
 import { Http, Headers } from "@angular/http";
 import 'rxjs/add/operator/map';
+import { Storage } from "@ionic/Storage";
+
+import { ComentarioPage } from '../comentario/comentario';
 
 @Component({
   selector: 'page-home',
@@ -14,6 +17,7 @@ export class HomePage {
   headers: Headers;
   url: string;
   peliculas: any[];
+  localStorage: Storage;
   usuarioId: string;
 
   constructor(
@@ -28,45 +32,49 @@ export class HomePage {
 	  	this.headers.append("X-Parse-Master-Key", "masterKey");
 	  	this.headers.append("X-Parse-Application-Id", "Lista1");
 
-			this.getPeliculas(null);
+      this.localStorage = new Storage(null);
+      this.localStorage
+        .get("usuarioId")
+        .then((valor) => {
+          this.usuarioId = valor;
+          
+          this.getPeliculas(null);
+        });
+
 
   }
 
-  dialogoAdd() {
+  addComentario(p) {
 
   	 this.alertCtrl.create({
-      title: "Añadir pelicula",
-      message: "Ingresa los datos del nuevo usuario",
+      title: "Añadir Comentario",
+      message: "Escribe lo que piensas sobre esta pelicula",
       inputs: [{
-        name: "nombre",
-        placeholder: "Nombre"
+        name: "titulo",
+        placeholder: "Titulo"
       },
       {
-        name: "email",
-        placeholder: "Email"
-      },
-      {
-        name: "telefono",
-        placeholder: "Teléfono"
+        name: "comentario",
+        placeholder: "Ingresa tu comentario"
       }],
       buttons: [{
         text: "Cancelar"
       }, {
-        text: "Guardar",
+        text: "Comentar",
         handler: data => {
-          let loading = this.loadingCtrl.create({content: "guardando la información"});
+          let loading = this.loadingCtrl.create({content: "guardando comentario"});
           loading.present();
-          this.url = "http://localhost:8080/lista/classes/pelicula";
+          this.url = "http://localhost:8080/lista/classes/comentario";
 
           this.http.post(this.url, 
-                  { nombre: data.nombre, email: data.email, telefono: data.telefono, imagen: "http://lorempixel.com/34/34", propietario: this.usuarioId },
+                  { titulo: data.titulo, descripcion: data.comentario, p_titulo: p.titulo, p_imagen: p.imagen, usuarioId: this.usuarioId },
                   {headers: this.headers})
             .map(res => res.json())
             .subscribe(res => {
-              this.getPeliculas(null);
+              //this.getPeliculas(null);
               loading.dismiss();
               this.toastCtrl.create({
-                message: "El pelicula se ha creado exitosamente",
+                message: "El comentario se ha gardado exitosamente",
                 duration: 4000,
                 position: "bottom"
               }).present();
@@ -107,101 +115,6 @@ export class HomePage {
       })
   }
 
-editPelicula(pelicula) {
-   this.alertCtrl.create({
-     title: "Editar Pelicula",
-     message: "Modifica la información del pelicula aquí",
-     inputs: [
-       {
-         name: "nombre",
-         placeholder: "Nombre",
-         value: pelicula.nombre
-       },
-       {
-         name: "email",
-         placeholder: "Email",
-         value: pelicula.email
-       },
-       {
-         name: "telefono",
-         placeholder: "Teléfono",
-         value: pelicula.telefono
-       }
-     ],
-     buttons: [
-       {
-         text: "Cancelar"
-       },
-       {
-         text: "Guardar",
-         handler: data => {
-           let loading = this.loadingCtrl.create({content: "Actualizando información"});
-          loading.present();
-          this.url = "http://localhost:8080/lista/classes/pelicula/"+pelicula.objectId;
-
-          this.http.put(this.url, 
-                  { nombre: data.nombre, email: data.email, telefono: data.telefono},
-                  {headers: this.headers})
-            .map(res => res.json())
-            .subscribe(res => {
-              loading.dismiss();
-              this.toastCtrl.create({
-                message: "El pelicula se ha creado exitosamente",
-                duration: 3000,
-                position: "bottom"
-              }).present();
-              this.getPeliculas(null);
-            }, err => {
-              loading.dismiss();
-              this.toastCtrl.create({
-                message: "Ha ocurrido un error, inténtelo de nuevo",
-                duration: 3000,
-                position: "bottom"
-              }).present();
-            })
-         }
-       }
-     ]
-   }).present();
- }
-
-
-  deletePelicula(pelicula) {
-
-    this.alertCtrl.create({
-      title: "Elimiar Pelicula",
-      message: "¿Esta seguro de eliminar a este pelicula ?",
-      buttons: [{ text: "No" },
-      { text: "Sí", handler: () => {
-        let loading = this.loadingCtrl.create({content: "Actualizando información"});
-        loading.present();
-
-        this.url = "http://localhost:8080/lista/classes/pelicula/"+pelicula.objectId;
-    
-        this.http.delete(this.url, { headers: this.headers })
-          .map(res => res.json())
-          .subscribe(res => {
-            loading.dismiss();
-            this.toastCtrl.create({
-              message: "El pelicula ha sido eliminado exitosamente",
-              duration: 3000,
-              position: "bottom"
-            }).present();
-            this.getPeliculas(null);
-          }, err => {
-            loading.dismiss();
-            this.toastCtrl.create({
-              message: "Ha ocurrido un error, inténtelo de nuevo",
-              duration: 3000,
-              position: "bottom"
-            }).present();
-          })  
-      }}]
-
-    }).present();
-
-  }
-
   favorita(pelicula, estado) {
 
     let loading = this.loadingCtrl.create({content: "Actualizando información"});
@@ -229,6 +142,10 @@ editPelicula(pelicula) {
       }
     )
 
+  }
+
+  irAComentarios() {
+    this.navCtrl.push(ComentarioPage);
   }
 
 }
