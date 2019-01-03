@@ -36,8 +36,8 @@ export class LoginPage {
       this.localStorage
         .get("usuarioId")
         .then((valor) => {
-          // console.log(valor);
-          if(valor !== ""){
+          console.log(valor);
+          if(valor !== "" && valor !== null){
 
            this.navCtrl.setRoot(HomePage);
           }
@@ -82,10 +82,6 @@ export class LoginPage {
 
   irARegisto() {
   	this.navCtrl.push(RegistroPage);
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
   }
 
 }

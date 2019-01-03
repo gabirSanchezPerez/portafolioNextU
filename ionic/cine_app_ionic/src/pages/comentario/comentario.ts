@@ -63,7 +63,7 @@ export class ComentarioPage {
 editComentario(c) {
    this.alertCtrl.create({
      title: "Editar Comentario",
-     message: "Modifica tucomentario aquí",
+     message: "Modifica tu comentario aquí",
      inputs: [
        {
          name: "titulo",
@@ -117,7 +117,7 @@ editComentario(c) {
   deleteComentario(c) {
 
     this.alertCtrl.create({
-      title: "Elimiar Comentario",
+      title: "Eliminar Comentario",
       message: "¿Esta seguro de eliminar a este Comentario ?",
       buttons: [{ text: "No" },
       { text: "Sí", handler: () => {

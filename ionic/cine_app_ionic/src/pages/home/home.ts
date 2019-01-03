@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { Storage } from "@ionic/Storage";
 
 import { ComentarioPage } from '../comentario/comentario';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -146,6 +147,15 @@ export class HomePage {
 
   irAComentarios() {
     this.navCtrl.push(ComentarioPage);
+  }
+
+  cerrarSession(){
+    this.localStorage.clear();
+
+        // .remove("usuarioId")
+        // .then(() => {
+          this.navCtrl.setRoot(LoginPage);
+        // })
   }
 
 }

@@ -76,12 +76,4 @@ export class RegistroPage {
 
   }
 
-  irALogin() {
-  	this.navCtrl.pop();
-  }
-
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad RegistroPage');
-  // }
-
 }

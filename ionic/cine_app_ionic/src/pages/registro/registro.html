@@ -8,9 +8,7 @@
 
 
 <ion-content padding>
-	<ion-card>
-		<img src="assets/imgs/logo.jpg" alt="">	
-	</ion-card>
+	<h4>Crea tu cuenta en Cine App</h4>
 	<ion-list no-lines>
 		<ion-item>
 			<ion-label floating>Nombre</ion-label>
@@ -37,6 +35,5 @@
 			<ion-input type="password" [(ngModel)]="confirmarContrasena"></ion-input>
 		</ion-item>	
 	</ion-list>
-	<button block ion-button (click)="registrar()" >Registrate</button>
-	<button clear block ion-button (click)="irALogin()" >¿Ya tienes cuenta? Inicia Sesión</button>
+	<button block ion-button (click)="registrar()" color="danger" >Registrate</button>
 </ion-content>
