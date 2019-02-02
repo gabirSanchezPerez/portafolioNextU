@@ -1,0 +1,42 @@
+<ActionBar title="Buscardor de Universidades" class="action-bar"></ActionBar>
+
+<StackLayout class="page">
+
+    <StackLayout orientation="horizontal">
+        <Label text="Nombre: " textWrap="true" ></Label>
+        <TextField hint="Ingrese el nombre a buscar" class="input input-rounded m-t-10"
+            verticalAlignment="center" style="text-align:center" marginTop="10"></TextField>
+        <Button class="btn btn-primary" text="Ubicarme" verticalAlignment="center" margin="10" (tap)="buscarUniversiad()"></Button>
+    </StackLayout>
+
+    <StackLayout>
+        <label text="Busca universidades en tu ubicación" 
+        verticalAlignment="center" style="text-align:center" marginTop="20"></label>
+    
+        <Button class="btn btn-primary" text="Ubicarme" verticalAlignment="center" margin="10" (tap)="buscarme()"></Button>
+    </StackLayout>
+    
+    <ListView [items]="items" class="list-group">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <StackLayout class="list-group-item">
+
+                <StackLayout orientation="horizontal">
+                    <Label text="Nombre: " textWrap="true" ></Label>
+                    <Label [text]="item.name" ></Label>
+                </StackLayout>
+
+                <StackLayout orientation="horizontal">
+                    <Label text="Pais: " textWrap="true"></Label>
+                    <Label [text]="item.country" ></Label>
+                </StackLayout>
+
+                <StackLayout orientation="horizontal">
+                    <Label text="Página Web: " textWrap="true"></Label>
+                    <Label [text]="item.web_pages" ></Label>
+                </StackLayout>
+                        
+            </StackLayout>
+        </ng-template>
+    </ListView>
+
+</StackLayout>
