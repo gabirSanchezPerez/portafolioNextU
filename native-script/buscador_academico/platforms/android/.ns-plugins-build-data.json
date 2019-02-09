@@ -1,4 +1,19 @@
 {
+	"nativescript-fontawesome": {
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-fontawesome\\platforms\\android\\AndroidManifest.xml": "a49c6297b29f6fca5b1b61650dae089ff2181ba0",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-fontawesome\\platforms\\android\\include.gradle": "f1091b6acf29316e58365d39dd9134db9ec18bd4",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-fontawesome\\platforms\\android\\README.md": "45f2f63427be0a461a7e2dfd5ff0ad5bab64068f"
+	},
+	"nativescript-geolocation": {
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-geolocation\\platforms\\android\\include.gradle": "a9ad7f439204a251541921d75e1f75ae6dd832c2",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-geolocation\\platforms\\android\\nativescript_geolocation.aar": "16c90d1f9e31989785e0044233b012f008138016"
+	},
+	"nativescript-google-maps-sdk": {
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-google-maps-sdk\\platforms\\android\\AndroidManifest.xml": "130cc0f7d61291e1fe1fe5162746b1b3def24330",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-google-maps-sdk\\platforms\\android\\include.gradle": "faf6fc754a47c6266f96b0406272ff1f1028a054",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-google-maps-sdk\\platforms\\android\\res\\values\\nativescript_google_maps_api.xml": "d17f77bd86070f002f9c7e6b406b8e89a9b039a6",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\nativescript-google-maps-sdk\\platforms\\android\\nativescript_google_maps_sdk.aar": "b7564cdff4ceaa2f1c434b1d142a54842eefbfa4"
+	},
 	"tns-core-modules-widgets": {
 		"F:\\wamp\\www\\portafolioNextU\\native-script\\buscador_academico\\node_modules\\tns-core-modules-widgets\\platforms\\android\\widgets-release.aar": "0adf00f86e29a73b3beb263951c7a10011372516"
 	}

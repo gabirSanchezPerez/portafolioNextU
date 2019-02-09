@@ -1,0 +1,9 @@
+{
+	"nativescript-geolocation": {
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\node_modules\\nativescript-geolocation\\platforms\\android\\include.gradle": "a9ad7f439204a251541921d75e1f75ae6dd832c2",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\node_modules\\nativescript-geolocation\\platforms\\android\\nativescript_geolocation.aar": "16c90d1f9e31989785e0044233b012f008138016"
+	},
+	"tns-core-modules-widgets": {
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\node_modules\\tns-core-modules-widgets\\platforms\\android\\widgets-release.aar": "0adf00f86e29a73b3beb263951c7a10011372516"
+	}
+}

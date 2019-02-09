@@ -1,0 +1,4 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("rxjs-compat/add/observable/fromPromise");
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZnJvbVByb21pc2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJmcm9tUHJvbWlzZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGtEQUFnRCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAncnhqcy1jb21wYXQvYWRkL29ic2VydmFibGUvZnJvbVByb21pc2UnO1xuIl19

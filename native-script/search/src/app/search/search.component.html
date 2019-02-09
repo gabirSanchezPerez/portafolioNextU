@@ -1,0 +1,45 @@
+<ActionBar title="Buscardor de Universidades" class="action-bar">
+</ActionBar>
+
+<StackLayout class="page">
+
+    <StackLayout width="100%" *ngIf="cargando" orientation="vertical" verticalAlignment="center" class="buscador">
+        <ActivityIndicator #activityIndicator [busy]="cargando" width="100%" height="50" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
+        <label class="activity-indicator-label" [text]="txtCargando" textWrap="true" style="text-align:center; color: #1F8905;"></label>
+    </StackLayout>
+
+    <StackLayout orientation="horizontal" margin="15" >
+        <TextField hint="Ingrese el nombre a buscar" class="input input-rounded m-t-10" id="universidad" verticalAlignment="center" ></TextField>
+        <Button class="btn btn-primary" text="Busca" (tap)="buscarUniversiad()" verticalAlignment="center"></Button>
+    </StackLayout>
+
+    <StackLayout margin="10">
+        <label text="Busca universidades en tu ubicación." 
+        verticalAlignment="center" style="text-align:center"></label>
+        <Button class="btn btn-primary btn-active" text="Ubicarme" (tap)="mostrarOpcionesUbicarme()"></Button>
+    </StackLayout>
+
+    <ListView [items]="items" class="list-group">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <StackLayout class="list-group-item">
+
+                <StackLayout orientation="horizontal">
+                    <Label text="Nombre: " textWrap="true" ></Label>
+                    <Label [text]="item.name" class="list-group-item-heading" color="#0080c0" textWrap="true"></Label>
+                </StackLayout>
+
+                <StackLayout orientation="horizontal">
+                    <Label text="Pais: " textWrap="true"></Label>
+                    <Label [text]="item.country" ></Label>
+                </StackLayout>
+
+                <StackLayout orientation="horizontal">
+                    <Label text="Página Web: " textWrap="true"></Label>
+                    <Label [text]="item.web_pages" ></Label>
+                </StackLayout>
+                        
+            </StackLayout>
+        </ng-template>
+    </ListView>
+
+</StackLayout>

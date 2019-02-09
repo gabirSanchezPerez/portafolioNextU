@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function EmptyErrorImpl() {
+    Error.call(this);
+    this.message = 'no elements in sequence';
+    this.name = 'EmptyError';
+    return this;
+}
+EmptyErrorImpl.prototype = Object.create(Error.prototype);
+/**
+ * An error thrown when an Observable or a sequence was queried but has no
+ * elements.
+ *
+ * @see {@link first}
+ * @see {@link last}
+ * @see {@link single}
+ *
+ * @class EmptyError
+ */
+exports.EmptyError = EmptyErrorImpl;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW1wdHlFcnJvci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkVtcHR5RXJyb3IudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFPQSxTQUFTLGNBQWM7SUFDckIsS0FBSyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUNqQixJQUFJLENBQUMsT0FBTyxHQUFHLHlCQUF5QixDQUFDO0lBQ3pDLElBQUksQ0FBQyxJQUFJLEdBQUcsWUFBWSxDQUFDO0lBQ3pCLE9BQU8sSUFBSSxDQUFDO0FBQ2QsQ0FBQztBQUVELGNBQWMsQ0FBQyxTQUFTLEdBQUcsTUFBTSxDQUFDLE1BQU0sQ0FBQyxLQUFLLENBQUMsU0FBUyxDQUFDLENBQUM7QUFFMUQ7Ozs7Ozs7OztHQVNHO0FBQ1UsUUFBQSxVQUFVLEdBQW1CLGNBQXFCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgaW50ZXJmYWNlIEVtcHR5RXJyb3IgZXh0ZW5kcyBFcnJvciB7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgRW1wdHlFcnJvckN0b3Ige1xuICBuZXcoKTogRW1wdHlFcnJvcjtcbn1cblxuZnVuY3Rpb24gRW1wdHlFcnJvckltcGwodGhpczogYW55KSB7XG4gIEVycm9yLmNhbGwodGhpcyk7XG4gIHRoaXMubWVzc2FnZSA9ICdubyBlbGVtZW50cyBpbiBzZXF1ZW5jZSc7XG4gIHRoaXMubmFtZSA9ICdFbXB0eUVycm9yJztcbiAgcmV0dXJuIHRoaXM7XG59XG5cbkVtcHR5RXJyb3JJbXBsLnByb3RvdHlwZSA9IE9iamVjdC5jcmVhdGUoRXJyb3IucHJvdG90eXBlKTtcblxuLyoqXG4gKiBBbiBlcnJvciB0aHJvd24gd2hlbiBhbiBPYnNlcnZhYmxlIG9yIGEgc2VxdWVuY2Ugd2FzIHF1ZXJpZWQgYnV0IGhhcyBub1xuICogZWxlbWVudHMuXG4gKlxuICogQHNlZSB7QGxpbmsgZmlyc3R9XG4gKiBAc2VlIHtAbGluayBsYXN0fVxuICogQHNlZSB7QGxpbmsgc2luZ2xlfVxuICpcbiAqIEBjbGFzcyBFbXB0eUVycm9yXG4gKi9cbmV4cG9ydCBjb25zdCBFbXB0eUVycm9yOiBFbXB0eUVycm9yQ3RvciA9IEVtcHR5RXJyb3JJbXBsIGFzIGFueTsiXX0=

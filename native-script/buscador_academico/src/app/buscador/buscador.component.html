@@ -2,18 +2,20 @@
 
 <StackLayout class="page">
 
-    <StackLayout orientation="horizontal">
-        <Label text="Nombre: " textWrap="true" ></Label>
+    <StackLayout orientation="horizontal" margin="15" >
         <TextField hint="Ingrese el nombre a buscar" class="input input-rounded m-t-10"
-            verticalAlignment="center" style="text-align:center" marginTop="10"></TextField>
-        <Button class="btn btn-primary" text="Ubicarme" verticalAlignment="center" margin="10" (tap)="buscarUniversiad()"></Button>
+            verticalAlignment="center" [(ngModel)]="txtBuscar" ></TextField>
+        <Button class="btn btn-primary" text="Buscar"
+            verticalAlignment="center" (tap)="buscarUniversiad()"></Button>
     </StackLayout>
 
-    <StackLayout>
-        <label text="Busca universidades en tu ubicación" 
-        verticalAlignment="center" style="text-align:center" marginTop="20"></label>
+    <StackLayout margin="10">
+        <label text="Busca universidades en tu ubicación." 
+        verticalAlignment="center" style="text-align:center"></label>
+        <Label text="Latitude: {{ latitude }}" verticalAlignment="center" style="text-align:center"></Label>
+        <Label text="Longitude: {{ longitude }}" verticalAlignment="center" style="text-align:center"></Label>
     
-        <Button class="btn btn-primary" text="Ubicarme" verticalAlignment="center" margin="10" (tap)="buscarme()"></Button>
+        <Button class="btn btn-primary" text="Ubicarme" verticalAlignment="center"  (tap)="buscarme()"></Button>
     </StackLayout>
     
     <ListView [items]="items" class="list-group">

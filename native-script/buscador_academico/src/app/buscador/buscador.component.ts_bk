@@ -1,0 +1,148 @@
+import { Component, OnInit } from "@angular/core";
+
+import { Buscar } from "../servicios/buscador";
+import { BuscadorService } from "../servicios/buscador.service";
+
+import * as Geolocation from "nativescript-geolocation";
+// import { isEnabled, enableLocationRequest, getCurrentLocation, watchLocation, distance, clearWatch } from "nativescript-geolocation";
+import { Accuracy } from "tns-core-modules/ui/enums";
+import { Ubicacion } from "./ubicacion";
+
+@Component({
+    selector: "ns-buscador",
+    moduleId: module.id,
+    templateUrl: "./buscador.component.html",
+})
+export class BuscadorComponent {
+    items: Buscar[];
+    public txtBuscar: string = "";
+    miUbicacion: Ubicacion = {
+        latitud: 0,
+        longitud: 0,
+        altitud: 0,
+        zoom: 0,
+        bearing: 0,
+        tilt: 0,
+        padding: [40, 40, 40, 40]
+    }
+    public latitude: number;
+    public longitude: number;
+    private watchId: number;
+
+    constructor(private buscadorService: BuscadorService) { 
+        this.latitude = 0;
+        this.longitude = 0;
+    }
+
+    // ngOnInit(): void {implements OnInit
+                
+    // }
+
+    buscarUniversiad() {
+        console.log(this.txtBuscar);
+        this.items = this.buscadorService.getUniversidad("middle");
+    }
+
+    buscarme () {
+        //this.permitirLocalizacion()
+        //this.obtenerPosicion()
+        // this.getDeviceLocation().then(result => {
+        //     this.latitude = result.latitude;
+        //     this.longitude = result.longitude;
+        // }, error => {
+        //     console.error(error);
+        // });
+
+        Geolocation.isEnabled().then(function (isEnabled) {
+            if (!isEnabled) {
+                Geolocation.enableLocationRequest().then(function () {
+                    console.log("Success: ");
+                }, function (e) {
+                    console.log("Error 1: " + (e.message || e));
+                });
+            }
+        }, function (e) {
+            console.log("Error 2: " + (e.message || e));
+        });
+    }
+
+    private getDeviceLocation(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            Geolocation.enableLocationRequest().then(() => {
+                Geolocation.getCurrentLocation({timeout: 10000}).then(location => {
+                    resolve(location);
+                }).catch(error => {
+                    reject(error);
+                });
+            });
+        });
+    }
+
+    permitirLocalizacion() {
+        Geolocation.enableLocationRequest().then(() => {
+            Geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, timeout: 5000 })
+            .then(
+                location => {
+                    console.log("recived " + location);
+                    this.miUbicacion = {
+                        latitud: location.latitude,
+                        longitud: location.longitude,
+                        altitud: 0,
+                        zoom: 0,
+                        bearing: 0,
+                        tilt: 0,
+                        padding: [40, 40, 40, 40]
+                    }
+                    console.log(this.miUbicacion);
+                }, err => {
+                    console.log("ERROR getCurrentLocation: " + err.message);
+                }
+            );
+            // Geolocation.getCurrentLocation({timeout: 10000}).then(location => {
+            //     console.log(location);
+            // }).catch(error => {
+            //     console.log(error);
+            // });
+        });
+
+        //if ( !Geolocation.isEnabled ) {
+            // Geolocation.enableLocationRequest()
+            //     .then(function() {
+            //         console.error("Allow geolocation");
+            //     }, function(error) {
+            //         console.error("Deny : " + error);
+            //     });
+        //}
+    }
+
+    obtenerPosicion() {
+        console.log("2")
+        Geolocation.getCurrentLocation({ desiredAccuracy: Accuracy.high, timeout: 5000 })
+            .then(
+                location => {
+                    console.log("recived " + location);
+                    this.miUbicacion = {
+                        latitud: location.latitude,
+                        longitud: location.longitude,
+                        altitud: 0,
+                        zoom: 0,
+                        bearing: 0,
+                        tilt: 0,
+                        padding: [40, 40, 40, 40]
+                    }
+                    console.log(this.miUbicacion);
+                }, err => {
+                    console.log("ERROR getCurrentLocation: " + err.message);
+                }
+            );
+            /*var location = getCurrentLocation({desiredAccuracy: 3, updateDistance: 10, maximumAge: 20000, timeout: 20000}).
+            then(function(loc) {
+                if (loc) {
+                    console.log("Current location is: " + loc);
+                }
+            }, function(e){
+                console.log("Error: " + e.message);
+            });*/
+
+    }
+}

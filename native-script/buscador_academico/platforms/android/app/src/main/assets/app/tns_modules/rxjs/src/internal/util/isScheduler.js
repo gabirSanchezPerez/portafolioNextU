@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function isScheduler(value) {
+    return value && typeof value.schedule === 'function';
+}
+exports.isScheduler = isScheduler;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaXNTY2hlZHVsZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpc1NjaGVkdWxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUVBLFNBQWdCLFdBQVcsQ0FBQyxLQUFVO0lBQ3BDLE9BQU8sS0FBSyxJQUFJLE9BQWEsS0FBTSxDQUFDLFFBQVEsS0FBSyxVQUFVLENBQUM7QUFDOUQsQ0FBQztBQUZELGtDQUVDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgU2NoZWR1bGVyTGlrZSB9IGZyb20gJy4uL3R5cGVzJztcblxuZXhwb3J0IGZ1bmN0aW9uIGlzU2NoZWR1bGVyKHZhbHVlOiBhbnkpOiB2YWx1ZSBpcyBTY2hlZHVsZXJMaWtlIHtcbiAgcmV0dXJuIHZhbHVlICYmIHR5cGVvZiAoPGFueT52YWx1ZSkuc2NoZWR1bGUgPT09ICdmdW5jdGlvbic7XG59XG4iXX0=

@@ -1,0 +1,31 @@
+{
+	"nativePlatformStatus": "3",
+	"appFilesHashes": {
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\app-routing.module.js": "ed3f97e2d445d13f0f8994e6e6ff3b3375e0630e",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\app-routing.module.ts": "e204f22004de1adb0b5dd6d3a34e7bab4d8e2a35",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\app.component.html": "611325f92aae874130d34a7621cbbd3eabd48aac",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\app.component.js": "aa6c3948acc11fda3642d87ca9c9fa2b1d42e0e5",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\app.component.ts": "e8cb7b2eb887d7ec6e2ec71a8a05146eb62948bd",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\app.module.js": "72a519206671b3633ea69b36665c8bd03ead2946",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\app.module.ts": "fb964de6819af0df5ac608e6b020fa35b8c7338e",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\interfaces\\buscador.interface.js": "b65145f7a47add674d11d18b14f2c410102ec1b1",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\interfaces\\buscador.interface.ts": "ff489d0c4bff8bfc708ac79caf1c2f52f5c0f98c",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\interfaces\\ubicacion.interface.js": "741799b34fbb8e857b9775192b83b14746882480",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\interfaces\\ubicacion.interface.ts": "147d1f311c8c585c1e69795db5a6b341443a0a24",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\search\\search.component.html": "5ec33b1622352864b05ff34f37c5b49703caa168",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\search\\search.component.js": "28d9a21bbc4fb7977468bcec793eb7c4cfaf41a2",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\search\\search.component.ts": "d5b4698adfdd6e401299b9aff6d4232698573ff8",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\services\\buscador.service.js": "0c77c96ce4fe21fe16fda661750fdf112d7b7dc4",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app\\services\\buscador.service.ts": "b0676f62f8a7d7b7d3b435c3f80846d4ef7edb2c",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\app.css": "24f81ff5c41798f4671899fdc9d85993fbf27059",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\main.js": "5c3c1af162c1f5346f12c575cf02bef55bc9934a",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\main.ts": "fa9441b0939a495b172a2327d2da0ff8507b72fb",
+		"F:\\wamp\\www\\portafolioNextU\\native-script\\search\\src\\package.json": "62db8f086c6c89608370f1d52d8bcf671ce139db"
+	},
+	"release": false,
+	"bundle": false,
+	"changesRequireBuild": false,
+	"time": "Wed Feb 06 2019 23:12:33 GMT-0500 (Hora est. Pacífico, Sudamérica)",
+	"changesRequireBuildTime": "Wed Feb 06 2019 22:26:53 GMT-0500 (Hora est. Pacífico, Sudamérica)",
+	"projectFileHash": "35dd90ef0b06ad7254285d18db7b819a5d56498b2ef0de57045983bf374eb29a"
+}
