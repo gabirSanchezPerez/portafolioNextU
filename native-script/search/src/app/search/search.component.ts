@@ -49,20 +49,6 @@ export class SearchComponent implements OnInit {
     }
 
     // Localización
-    private getDeviceLocation(): Promise<any> {
-        return new Promise((resolve, reject) => {
-            Geolocation.enableLocationRequest().then(() => {
-                Geolocation.getCurrentLocation({timeout: 10000}).then(location => {
-                    console.log("Ubicacion: " + JSON.stringify(location));
-                    resolve(location);
-                }).catch(error => {
-                    console.log("Error: " +error);
-                    reject(error);
-                });
-            });
-        });
-    }
-
     public obtenerCoordenadas() {
         
         this.getDeviceLocation().then(location => {
@@ -112,22 +98,52 @@ export class SearchComponent implements OnInit {
         }
     }
 
+    private getDeviceLocation(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            Geolocation.enableLocationRequest().then(() => {
+                Geolocation.getCurrentLocation({timeout: 10000}).then(location => {
+                    // console.log("Ubicacion: " + JSON.stringify(location));
+                    resolve(location);
+                }).catch(error => {
+                    // console.log("Error: " +error);
+                    reject(error);
+                });
+            });
+        });
+    }
+
     // Universidad
     public buscarUniversiad() {
 
         this.cargando = true;
         this.txtCargando = "Buscando Universidad";
         this.buscadorService.universidad = this.page.getViewById<TextField>("universidad").text;
-        if(this.dondeBuscar == "") {
-            this.items = this.buscadorService.getUniversidad();
-        } else {
-            this.buscadorService.ciudad = this.localizarService.ciudad;
-            this.items = this.buscadorService.getUniversidadCiudad();
-        }
-        console.log(this.items);
-        // this.cargando = false;
-
+        this.buscadorService.ciudad = this.localizarService.ciudad;
+        this.buscadorService.getUniversidad()
+        .then(universidades => {
+            this.cargando = false;
+            this.items = universidades;
+            console.log("bUuU " + universidades);
+        }, err => {
+            console.log("BU " + err);
+        });
     }
+
+    // public obtenerUniversidad(): Promise<any>{
+    //     return new Promise((resolve,reject) => {
+    //         if(this.dondeBuscar == "") {
+    //             this.items = this.buscadorService.getUniversidad();
+    //         } else {
+    //             this.buscadorService.ciudad = this.localizarService.ciudad;
+    //             this.items = this.buscadorService.getUniversidadCiudad();
+    //         }
+    //         if(this.items.length > 0){
+    //             resolve(this.items);
+    //         } else {
+    //             reject("NO se obtivuieron datos")
+    //         }
+    //     });
+    // }
 
     public mostrarOpcionesUbicarme(){
 
@@ -146,9 +162,9 @@ export class SearchComponent implements OnInit {
         .then(result => {
             console.log("Dialog result: " + result);
             if(result == "Buscar en mi ubicación"){
-                this.dondeBuscar = this.localizarService.ciudad;
+                this.buscadorService.buscaren = this.localizarService.ciudad;
             }else if(result == "Buscar en todo el mundo"){
-                this.dondeBuscar = "";
+                this.buscadorService.buscaren = "";
             }
         });
     }

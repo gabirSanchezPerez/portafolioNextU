@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var ajax_1 = require("../internal/observable/dom/ajax");
-exports.ajax = ajax_1.ajax;
-var AjaxObservable_1 = require("../internal/observable/dom/AjaxObservable");
-exports.AjaxResponse = AjaxObservable_1.AjaxResponse;
-exports.AjaxError = AjaxObservable_1.AjaxError;
-exports.AjaxTimeoutError = AjaxObservable_1.AjaxTimeoutError;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLHdEQUF1RDtBQUE5QyxzQkFBQSxJQUFJLENBQUE7QUFDYiw0RUFBbUg7QUFBN0Ysd0NBQUEsWUFBWSxDQUFBO0FBQUUscUNBQUEsU0FBUyxDQUFBO0FBQUUsNENBQUEsZ0JBQWdCLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgeyBhamF4IH0gZnJvbSAnLi4vaW50ZXJuYWwvb2JzZXJ2YWJsZS9kb20vYWpheCc7XG5leHBvcnQgeyBBamF4UmVxdWVzdCwgQWpheFJlc3BvbnNlLCBBamF4RXJyb3IsIEFqYXhUaW1lb3V0RXJyb3IgfSBmcm9tICcuLi9pbnRlcm5hbC9vYnNlcnZhYmxlL2RvbS9BamF4T2JzZXJ2YWJsZSc7XG4iXX0=
